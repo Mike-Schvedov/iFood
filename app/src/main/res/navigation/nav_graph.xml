@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomeFragment">
+
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.mikeschvedov.ifood.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_HomeFragment_to_AddEntryFragment"
+            app:destination="@id/AddEntryFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_WeightFragment"
+            app:destination="@id/WeightFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/AddEntryFragment"
+        android:name="com.mikeschvedov.ifood.ui.add_entry.AddEntryFragment"
+        android:label="AddEntryFragment"
+        tools:layout="@layout/fragment_add_entry">
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/WeightFragment"
+        android:name="com.mikeschvedov.ifood.ui.weight.WeightFragment"
+        android:label="WeightFragment"
+        tools:layout="@layout/fragment_weight">
+    </fragment>
+</navigation>
