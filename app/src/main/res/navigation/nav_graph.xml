@@ -26,6 +26,9 @@
         tools:layout="@layout/fragment_add_entry">
 
 
+        <action
+            android:id="@+id/action_AddEntryFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
     </fragment>
 
     <fragment

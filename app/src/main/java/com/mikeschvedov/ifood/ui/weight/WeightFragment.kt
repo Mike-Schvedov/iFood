@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mikeschvedov.ifood.databinding.FragmentWeightBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class WeightFragment : Fragment() {
 
     private var _binding: FragmentWeightBinding? = null
