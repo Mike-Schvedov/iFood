@@ -9,4 +9,16 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="equals">=</string>
+    <string name="calories">קלוריות</string>
+    <string name="add">הוסף</string>
+    <string name="units">יחידות</string>
+    <string name="_0">0</string>
+    <string name="calories_per_gram">קלוריות / 100 גרם</string>
+    <string name="multiply">X</string>
+    <string name="grams">גרם</string>
+    <string name="calories_per_unit">קלוריות / יחידה</string>
+    <string name="search">חפש</string>
+    <string name="nothing_to_show">אין מה להציג, נא לחפש תאריך אחר.</string>
+    <string name="add_new_entry">Add New Entry</string>
 </resources>
