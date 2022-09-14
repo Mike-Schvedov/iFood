@@ -200,21 +200,24 @@ class AddEntryFragment : Fragment() {
         }
 
         return root
-
     }
 
     private fun addEntryAndGoBackHome(itemName: String, calories: Int, image: Int) {
-        // Get current time and date
+        // Get current time and date from bundle sent
+        val hour = arguments?.getInt("hour") ?: 0
+        val day = arguments?.getInt("day") ?: 0
+        val month = arguments?.getInt("month") ?: 0
+        val year = arguments?.getInt("year") ?: 0
 
         // Create new entry
         val newEntry = FoodEntry(
             foodName = itemName,
             calories = calories,
             image = image,
-            hour = 12,
-            day = 12,
-            month = 9,
-            year = 2022
+            hour = hour,
+            day = day,
+            month = month,
+            year = year
         )
         addEntryViewModel.addNewEntryToDB(newEntry)
         // Go back home

@@ -1,12 +1,12 @@
 package com.mikeschvedov.ifood.ui.home
 
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +14,7 @@ import com.mikeschvedov.ifood.R
 import com.mikeschvedov.ifood.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
+
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -71,7 +72,12 @@ class HomeFragment : Fragment() {
             populateRecyclerList()
         }
         binding.fabAddEntry.setOnClickListener {
-            findNavController().navigate(R.id.action_HomeFragment_to_AddEntryFragment)
+            val dateBundle = Bundle()
+            dateBundle.putInt("hour", currentHour)
+            dateBundle.putInt("day", homeDatePicker.dayOfMonth)
+            dateBundle.putInt("month", homeDatePicker.month+1) // increasing by 1 because the date picker shows one less
+            dateBundle.putInt("year", homeDatePicker.year)
+            findNavController().navigate(R.id.action_HomeFragment_to_AddEntryFragment, dateBundle)
         }
     }
 
@@ -81,21 +87,16 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun hideRecyclerView(b: Boolean) {
-        if (b){
-            binding.recyclerview.visibility = View.INVISIBLE
-            binding.nothingToShowTextview.visibility = View.VISIBLE
-        }else{
-            binding.recyclerview.visibility = View.VISIBLE
-            binding.nothingToShowTextview.visibility = View.INVISIBLE
-        }
-    }
-
     private fun populateRecyclerList() {
         homeViewModel.getAllEntriesByDate(
             day = homeDatePicker.dayOfMonth,
-            month = homeDatePicker.month + 1,
+            // increasing by 1 because the date picker actually stands on -1
+            month = homeDatePicker.month+1,
             year = homeDatePicker.year)
+        println("Showing these on recyclerlist:")
+        println("day: ${homeDatePicker.dayOfMonth}")
+        println("month: ${homeDatePicker.month+1}")
+        println("year: ${homeDatePicker.year}")
     }
 
     private fun populateDatePickerAtStart() {
@@ -109,6 +110,7 @@ class HomeFragment : Fragment() {
         val calendar = Calendar.getInstance(TimeZone.getDefault())
         currentHour = calendar[Calendar.HOUR]
         currentYear = calendar[Calendar.YEAR]
+        // We actually get the month at -1 but it's ok, because the date picker needs to receive -1 (it displays +1)
         currentMonth = calendar[Calendar.MONTH]
         currentDay = calendar[Calendar.DAY_OF_MONTH]
         println("INITIALIZED DATE:")
@@ -116,6 +118,16 @@ class HomeFragment : Fragment() {
         println("day: $currentDay")
         println("month: $currentMonth")
         println("year: $currentYear")
+    }
+
+    private fun hideRecyclerView(b: Boolean) {
+        if (b){
+            binding.recyclerview.visibility = View.INVISIBLE
+            binding.nothingToShowTextview.visibility = View.VISIBLE
+        }else{
+            binding.recyclerview.visibility = View.VISIBLE
+            binding.nothingToShowTextview.visibility = View.INVISIBLE
+        }
     }
 
     override fun onResume() {
