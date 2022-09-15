@@ -106,6 +106,12 @@ class HomeFragment : Fragment() {
             // increasing by 1 because the date picker actually stands on -1
             month = homeDatePicker.month+1,
             year = homeDatePicker.year)
+        println("GETTING THIS DATE:")
+        println(homeDatePicker.dayOfMonth)
+        println(homeDatePicker.month+1)
+        println(homeDatePicker.year)
+
+
     }
 
     private fun populateDatePickerAtStart() {
@@ -117,7 +123,7 @@ class HomeFragment : Fragment() {
     private fun initializeDate() {
         // Getting the current dates to set in DatePicker
         val calendar = Calendar.getInstance(TimeZone.getDefault())
-        currentHour = calendar[Calendar.HOUR]
+        currentHour = calendar[Calendar.HOUR_OF_DAY]
         currentYear = calendar[Calendar.YEAR]
         // We actually get the month at -1 but it's ok, because the date picker needs to receive -1 (it displays +1)
         currentMonth = calendar[Calendar.MONTH]
