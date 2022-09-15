@@ -2,11 +2,8 @@ package com.mikeschvedov.ifood.construction
 
 
 // ------ next up ----- //
-//Todo: Add "Total daily calories" to top of home fragment.
-//Todo: Delete entries when clicked on
 
 //------ don't forget ----- //
-//Todo: add all new foods from the original app
 //Todo: repopulate the database with the old data
 //Todo: added daily date as string , and when clicked on, the date picker will appear and the search button
 
@@ -23,5 +20,7 @@ package com.mikeschvedov.ifood.construction
 
 
 // Worked on Lately:
+//Now we can delete entries when clicked on.
+//Added 'Total daily calories' to top of home fragment.
 //Save entries using dynamic dates (not hardcoded like now)
 

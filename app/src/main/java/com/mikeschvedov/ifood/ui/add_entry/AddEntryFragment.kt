@@ -81,7 +81,7 @@ class AddEntryFragment : Fragment() {
             })
 
             // When we click on an item it will appear in the search view
-            listviewXml.setOnItemClickListener { parent, view, position, id ->
+            listviewXml.setOnItemClickListener { _, _, position, _ ->
                 // We set the text to the search view
                 searchviewXml.setQuery(listAdapter.getItem(position).toString(), false);
                 // We hide the list after clicking on the item
@@ -178,7 +178,7 @@ class AddEntryFragment : Fragment() {
                         val calories = insertedUnits.toInt() * thisItemsCalPerUnit
                         val image = selectedImageUrl
                         // Sending entry to view model
-                        addEntryAndGoBackHome(itemName, calories, image)
+                        addEntryAndGoBackHome(itemName, calories, image, insertedUnits)
                     } else {
                         requireContext().displayToast("יש להכניס כמות תקינה")
                     }
@@ -190,7 +190,7 @@ class AddEntryFragment : Fragment() {
                             calculateFinalCalories(insertedGrams.toInt(), thisItemsCalPer100)
                         val image = selectedImageUrl
                         // Sending entry to view model
-                        addEntryAndGoBackHome(itemName, calories, image)
+                        addEntryAndGoBackHome(itemName, calories, image, insertedGrams)
                         }
                     else {
                         requireContext().displayToast("יש להכניס משקל תקין")
@@ -202,7 +202,12 @@ class AddEntryFragment : Fragment() {
         return root
     }
 
-    private fun addEntryAndGoBackHome(itemName: String, calories: Int, image: Int) {
+    private fun addEntryAndGoBackHome(
+        itemName: String,
+        calories: Int,
+        image: Int,
+        gramsOrUnit: String
+    ) {
         // Get current time and date from bundle sent
         val hour = arguments?.getInt("hour") ?: 0
         val day = arguments?.getInt("day") ?: 0
@@ -213,6 +218,7 @@ class AddEntryFragment : Fragment() {
         val newEntry = FoodEntry(
             foodName = itemName,
             calories = calories,
+            gramsOrUnit = gramsOrUnit, //This has no use, it is only for extra info
             image = image,
             hour = hour,
             day = day,

@@ -1,16 +1,23 @@
 package com.mikeschvedov.ifood.ui.home
 
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.DatePicker
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikeschvedov.ifood.R
+import com.mikeschvedov.ifood.data.local_data.database.entities.FoodEntry
 import com.mikeschvedov.ifood.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -85,6 +92,12 @@ class HomeFragment : Fragment() {
         homeViewModel.isListEmpty.observe(viewLifecycleOwner){
             hideRecyclerView(it)
         }
+        homeViewModel.totalDailyCalories.observe(viewLifecycleOwner){ totalCalories->
+            binding.caloriesEatenTodayXml.text = totalCalories.toString()
+        }
+        homeViewModel.itemToDelete.observe(viewLifecycleOwner){ itemToDelete->
+            showAlertDialog(itemToDelete)
+        }
     }
 
     private fun populateRecyclerList() {
@@ -93,10 +106,6 @@ class HomeFragment : Fragment() {
             // increasing by 1 because the date picker actually stands on -1
             month = homeDatePicker.month+1,
             year = homeDatePicker.year)
-        println("Showing these on recyclerlist:")
-        println("day: ${homeDatePicker.dayOfMonth}")
-        println("month: ${homeDatePicker.month+1}")
-        println("year: ${homeDatePicker.year}")
     }
 
     private fun populateDatePickerAtStart() {
@@ -128,6 +137,29 @@ class HomeFragment : Fragment() {
             binding.recyclerview.visibility = View.VISIBLE
             binding.nothingToShowTextview.visibility = View.INVISIBLE
         }
+    }
+
+    private fun showAlertDialog(clickedEntry: FoodEntry) {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.custom_delete_dialog)
+        dialog.setCancelable(true)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window?.attributes?.windowAnimations = R.style.dialog_animation
+
+        val saveBTN = dialog.findViewById<AppCompatButton>(R.id.save_button)
+        saveBTN.setOnClickListener {
+            homeViewModel.deleteItem(clickedEntry)
+            Toast.makeText(requireContext(), "רישום נמחק", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+        }
+
+        val cancelBTN = dialog.findViewById<AppCompatButton>(R.id.cancel_button)
+        cancelBTN.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 
     override fun onResume() {

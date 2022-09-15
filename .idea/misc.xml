@@ -7,12 +7,15 @@
         <entry key="..\:/Users/M220/AndroidStudioProjects/iFood/app/src/main/res/layout/fragment_add_entry.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/M220/AndroidStudioProjects/iFood/app/src/main/res/layout/fragment_home.xml" value="0.31354166666666666" />
         <entry key="app/src/main/res/drawable/button_bg_search.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/custom_button_shape.xml" value="0.1975" />
+        <entry key="app/src/main/res/drawable/custom_dialog_bg.xml" value="0.1975" />
         <entry key="app/src/main/res/drawable/custom_outlined_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/custom_delete_dialog.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_add_entry.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2828125" />
-        <entry key="app/src/main/res/layout/recyclerview_item.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/recyclerview_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/simple_list_item_custom.xml" value="0.28177083333333336" />
       </map>
     </option>

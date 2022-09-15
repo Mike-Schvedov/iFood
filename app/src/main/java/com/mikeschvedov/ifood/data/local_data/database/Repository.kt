@@ -16,4 +16,8 @@ class Repository @Inject constructor(
     fun getFoodEntriesByDate(day: Int, month: Int, year:Int): Flow<List<FoodEntry>> {
         return foodEntryDao.getFoodEntriesByDate(day, month, year)
     }
+
+    suspend fun deleteEntryFromDB(foodEntry: FoodEntry) {
+        foodEntryDao.deleteEntry(foodEntry)
+    }
 }

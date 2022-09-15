@@ -1,6 +1,5 @@
 package com.mikeschvedov.ifood.data.local_data.database.entities
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
@@ -11,6 +10,7 @@ data class FoodEntry(
     var foodId: String = UUID.randomUUID().toString(),
     val foodName: String,
     val calories: Int,
+    val gramsOrUnit: String, //This has no use, it is only for extra info
     val image: Int,
     val hour: Int,
     val day: Int,

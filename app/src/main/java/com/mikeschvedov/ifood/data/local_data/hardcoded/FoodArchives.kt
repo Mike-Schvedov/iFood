@@ -10,6 +10,7 @@ class FoodArchive {
             FoodSaved("אבוקדו", 160, R.drawable.avocado, false, 0),
             FoodSaved("אגס", 59, R.drawable.pear, false, 0),
             FoodSaved("אורז", 130, R.drawable.rice, false, 0),
+            FoodSaved("אפרסק", 40, R.drawable.peach, false, 0),
             FoodSaved("אקסל", 0, R.drawable.xl, true, 120),
             //ב
             FoodSaved("ביג מאק (ללא רוטב)", 0, R.drawable.bigmac, true, 350),
@@ -32,6 +33,8 @@ class FoodArchive {
             FoodSaved("זיתים שחורים (ללא גלעין)", 171, R.drawable.blackolive, false, 0),
             //ח
             FoodSaved(" חזה עוף", 170, R.drawable.chicken_breast, false, 0),
+            FoodSaved(" חזרת", 70, R.drawable.hazeret, false, 0),
+            FoodSaved(" חיטה מבושלת", 150, R.drawable.wheat, false, 0),
             FoodSaved("חלב", 60, R.drawable.milk, false, 0),
             //ט
             FoodSaved(" טונה במים", 100, R.drawable.tuna, false, 0),
@@ -53,7 +56,10 @@ class FoodArchive {
             FoodSaved("מק-רויאל (ללא רוטב)", 0, R.drawable.mcroyal, true, 450),
             //נ
             FoodSaved("נישנושים", 491, R.drawable.nishnushim, false, 0),
+            FoodSaved("נקטרינה", 44, R.drawable.nectarine, false, 0),
+            FoodSaved("נקניקיות", 200, R.drawable.sausage, false, 0),
             //ס
+            FoodSaved(" סוכר", 400, R.drawable.sugar, false, 0),
             FoodSaved(" סלומון", 200, R.drawable.salmon, false, 0),
             FoodSaved("סלט טונה", 114, R.drawable.tunasalad, false, 0),
             //ע
@@ -62,23 +68,28 @@ class FoodArchive {
             FoodSaved(" ענבים", 70, R.drawable.grapes, false, 0),
 
             //פ
-            FoodSaved("פתית", 380, R.drawable.patit, false, 0),
             FoodSaved("פוטטו [מקדונלדס]", 190, R.drawable.potatos_mcdonalds, false, 0),
+            FoodSaved("פיתה", 250, R.drawable.pita, false, 0),
+            FoodSaved("פתית", 380, R.drawable.patit, false, 0),
             //צ
 
             //ק
+            FoodSaved("קטשופ", 110, R.drawable.ketshup, false, 0),
+            FoodSaved("קוסקוס", 120, R.drawable.kuskus, false, 0),
             FoodSaved("קפה עם חלב", 60, R.drawable.coffee, false, 0),
             //ר
             FoodSaved("רוטב עגבניות/ירקות", 40, R.drawable.totato_sauce, false, 0),
             FoodSaved("ריזיקה/כללי", 100, R.drawable.general, false, 0),
             FoodSaved("ריצה/אימון", -100, R.drawable.run, false, 0),
             //ש
+            FoodSaved("שווארמה הודו", 200, R.drawable.shawarma, false, 0),
             FoodSaved("שמן קנולה", 830, R.drawable.kanola, false, 0),
             FoodSaved("שמן זית", 822, R.drawable.olive_oil, false, 0),
+            FoodSaved("שניצלונים קופאים", 240, R.drawable.schnitselonim, false, 0),
             //ת
-            FoodSaved("תירס", 116, R.drawable.corn, false, 0),
+            FoodSaved("תירס", 90, R.drawable.corn, false, 0),
             FoodSaved("תפוח אדמה/פירה", 93, R.drawable.potato, false, 0),
-        )
+            )
 
     }
 }

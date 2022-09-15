@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
@@ -12,7 +13,10 @@ import com.mikeschvedov.ifood.data.local_data.database.entities.FoodEntry
 import javax.inject.Inject
 
 
-class HomeRecyclerAdapter @Inject constructor(private val listener: IsListEmptyListener) :
+class HomeRecyclerAdapter @Inject constructor(
+    private val clickListener: ItemClickedListener,
+    private val listener: IsListEmptyListener
+    ) :
     RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
 
     var list: MutableList<FoodEntry> = mutableListOf()
@@ -20,6 +24,12 @@ class HomeRecyclerAdapter @Inject constructor(private val listener: IsListEmptyL
     fun interface IsListEmptyListener{
         fun onDataReady(
             isEmpty: Boolean
+        )
+    }
+
+    fun interface ItemClickedListener{
+        fun onItemClicked(
+            item: FoodEntry
         )
     }
 
@@ -52,6 +62,8 @@ class HomeRecyclerAdapter @Inject constructor(private val listener: IsListEmptyL
             itemView.findViewById(R.id.entry_calories_xml)
         var image: ShapeableImageView =
             itemView.findViewById(R.id.entry_image_xml)
+        var layout : ConstraintLayout =
+            itemView.findViewById(R.id.item_layout)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
@@ -76,14 +88,10 @@ class HomeRecyclerAdapter @Inject constructor(private val listener: IsListEmptyL
         // --- Setting the image --- //
         holder.image.setImageResource(item.image)
 
-
-        //TODO add option to delete expense if clicked on, with alert of course
         // -- Sending the clicked item as callback -- //
-//            holder.itemLayout.setOnClickListener {
-//                listener.onItemClicked(item)
-
-//            }
-
+        holder.layout.setOnClickListener {
+            clickListener.onItemClicked(item)
+        }
     }
 
     override fun getItemCount(): Int {
