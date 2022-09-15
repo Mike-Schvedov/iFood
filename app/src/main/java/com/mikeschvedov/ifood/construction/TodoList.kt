@@ -3,8 +3,8 @@ package com.mikeschvedov.ifood.construction
 
 // ------ next up ----- //
 
+
 //------ don't forget ----- //
-//Todo: repopulate the database with the old data
 //Todo: added daily date as string , and when clicked on, the date picker will appear and the search button
 
 // ------ big features ----- //
@@ -17,9 +17,12 @@ package com.mikeschvedov.ifood.construction
 
 // ------ bug fixes ----- //
 // Todo: when we click on the x and remove the query, we are stuck with the unit/grams layout insead of returning to the list
+// Todo: when we press back button in home just quit app
+// Todo: clear qeury when leaving add entry fragment
 
 
 // Worked on Lately:
+//Ordered list by hours
 //Now we can delete entries when clicked on.
 //Added 'Total daily calories' to top of home fragment.
 //Save entries using dynamic dates (not hardcoded like now)

@@ -49,7 +49,7 @@ class HomeViewModel @Inject constructor(
     fun getAllEntriesByDate(day: Int, month: Int, year: Int){
         viewModelScope.launch {
             mediator.getFoodEntriesByDate(day, month, year).collect{ listOfEntries ->
-                adapter.setNewData(listOfEntries)
+                adapter.setNewData(listOfEntries.sortedBy { it.hour })
 
                 // Calculate total daily calories and post to live data
                 val totalCalories = mediator.calculateTotalCalories(listOfEntries)
