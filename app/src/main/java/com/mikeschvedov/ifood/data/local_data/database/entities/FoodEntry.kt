@@ -2,6 +2,7 @@ package com.mikeschvedov.ifood.data.local_data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.mikeschvedov.ifood.data.local_data.hardcoded.FoodCategory
 import java.util.*
 
 @Entity(tableName = "food_table")
@@ -15,6 +16,7 @@ data class FoodEntry(
     val hour: Int,
     val day: Int,
     val month: Int,
-    val year: Int
+    val year: Int,
+    val itemCategory: FoodCategory
 
 )

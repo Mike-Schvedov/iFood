@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.mikeschvedov.ifood.R
 import com.mikeschvedov.ifood.data.local_data.database.entities.FoodEntry
 import com.mikeschvedov.ifood.data.local_data.hardcoded.FoodArchive
+import com.mikeschvedov.ifood.data.local_data.hardcoded.FoodCategory
 import com.mikeschvedov.ifood.data.local_data.hardcoded.FoodSaved
 import com.mikeschvedov.ifood.databinding.FragmentAddEntryBinding
 import com.mikeschvedov.ifood.utils.displayToast
@@ -33,6 +34,7 @@ class AddEntryFragment : Fragment() {
     private var thisItemsCalPerUnit: Int = 0
     var selectedImageUrl: Int = 0
     var itemCountedasUnit: Boolean = false
+    var itemCategory: FoodCategory = FoodCategory.DEFAULT
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -90,6 +92,8 @@ class AddEntryFragment : Fragment() {
                 thisItemsCalPer100 = listAdapter.getItem(position)?.calPer100gr ?: 0
                 // We store our selected item's image
                 selectedImageUrl = listAdapter.getItem(position)?.image ?: 0
+                // We store our selected item's category
+                itemCategory = listAdapter.getItem(position)?.category ?: FoodCategory.DEFAULT
                 // We set it in our textview
                 itemsCaloriesPer100Xml.text = thisItemsCalPer100.toString()
                 // We check if the item is counted as unit (setting the class scope variable)
@@ -178,7 +182,7 @@ class AddEntryFragment : Fragment() {
                         val calories = insertedUnits.toInt() * thisItemsCalPerUnit
                         val image = selectedImageUrl
                         // Sending entry to view model
-                        addEntryAndGoBackHome(itemName, calories, image, insertedUnits)
+                        addEntryAndGoBackHome(itemName, calories, image, insertedUnits, itemCategory)
                     } else {
                         requireContext().displayToast("יש להכניס כמות תקינה")
                     }
@@ -190,7 +194,13 @@ class AddEntryFragment : Fragment() {
                             calculateFinalCalories(insertedGrams.toInt(), thisItemsCalPer100)
                         val image = selectedImageUrl
                         // Sending entry to view model
-                        addEntryAndGoBackHome(itemName, calories, image, insertedGrams)
+                        addEntryAndGoBackHome(
+                            itemName,
+                            calories,
+                            image,
+                            insertedGrams,
+                            itemCategory
+                        )
                         }
                     else {
                         requireContext().displayToast("יש להכניס משקל תקין")
@@ -206,7 +216,8 @@ class AddEntryFragment : Fragment() {
         itemName: String,
         calories: Int,
         image: Int,
-        gramsOrUnit: String
+        gramsOrUnit: String,
+        itemCategory: FoodCategory
     ) {
         // Get current time and date from bundle sent
         val hour = arguments?.getInt("hour") ?: 0
@@ -223,7 +234,8 @@ class AddEntryFragment : Fragment() {
             hour = hour,
             day = day,
             month = month,
-            year = year
+            year = year,
+            itemCategory = itemCategory
         )
         addEntryViewModel.addNewEntryToDB(newEntry)
         // Go back home

@@ -122,11 +122,6 @@ class HomeFragment : Fragment() {
         // We actually get the month at -1 but it's ok, because the date picker needs to receive -1 (it displays +1)
         currentMonth = calendar[Calendar.MONTH]
         currentDay = calendar[Calendar.DAY_OF_MONTH]
-        println("INITIALIZED DATE:")
-        println("hour: $currentHour")
-        println("day: $currentDay")
-        println("month: $currentMonth")
-        println("year: $currentYear")
     }
 
     private fun hideRecyclerView(b: Boolean) {
