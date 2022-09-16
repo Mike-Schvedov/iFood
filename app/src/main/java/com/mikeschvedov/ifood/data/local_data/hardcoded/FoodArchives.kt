@@ -26,7 +26,7 @@ class FoodArchive {
             //ד
 
             //ה
-
+            FoodSaved("המבורגגר אנגוס", 300, R.drawable.angus, false, 0,FoodCategory.DEFAULT),
             //ו
             FoodSaved("תרכיז ויטמינצ\'יק", 352, R.drawable.vitaminchic, false, 0,FoodCategory.DEFAULT),
             //ז
@@ -40,7 +40,7 @@ class FoodArchive {
             FoodSaved(" טונה במים", 100, R.drawable.tuna, false, 0,FoodCategory.DEFAULT),
             FoodSaved(" טונה בשמן", 150, R.drawable.tuna, false, 0,FoodCategory.DEFAULT),
             //י
-
+            FoodSaved("יין אדום", 85, R.drawable.wine, false, 0,FoodCategory.DEFAULT),
             //כ
 
             //ל

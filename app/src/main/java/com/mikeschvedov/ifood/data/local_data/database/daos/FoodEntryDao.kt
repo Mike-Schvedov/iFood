@@ -3,6 +3,7 @@ package com.mikeschvedov.ifood.data.local_data.database.daos
 import androidx.room.*
 import com.mikeschvedov.ifood.data.local_data.database.entities.FoodEntry
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
 @Dao
 interface FoodEntryDao {

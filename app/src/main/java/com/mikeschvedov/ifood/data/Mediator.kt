@@ -3,11 +3,12 @@ package com.mikeschvedov.ifood.data
 import com.mikeschvedov.ifood.data.local_data.database.Repository
 import com.mikeschvedov.ifood.data.local_data.database.daos.FoodEntryDao
 import com.mikeschvedov.ifood.data.local_data.database.entities.FoodEntry
+import com.mikeschvedov.ifood.di.RoomRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class Mediator @Inject constructor(
-    private val repository: Repository
+    @RoomRepository private val repository: Repository
 ) {
 
 
