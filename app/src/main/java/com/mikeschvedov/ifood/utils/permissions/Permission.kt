@@ -1,6 +1,8 @@
 package com.mikeschvedov.ifood.utils.permissions
 
 import android.Manifest
+import android.os.Build
+import androidx.annotation.RequiresApi
 
 sealed class Permission(vararg val permissions: String) {
     // Individual permissions
@@ -17,10 +19,12 @@ sealed class Permission(vararg val permissions: String) {
         Manifest.permission.ACCESS_FINE_LOCATION,
         Manifest.permission.ACCESS_COARSE_LOCATION
     )
+    @RequiresApi(Build.VERSION_CODES.R)
     object Storage : Permission(
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        Manifest.permission.READ_EXTERNAL_STORAGE
+        Manifest.permission.READ_EXTERNAL_STORAGE,
     )
+
 
 
     companion object {

@@ -1,7 +1,11 @@
 package com.mikeschvedov.ifood.ui.home
 
 
+import android.Manifest
+import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+import android.app.Activity
 import android.app.Dialog
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -13,6 +17,8 @@ import android.view.Window
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -23,10 +29,9 @@ import com.mikeschvedov.ifood.databinding.FragmentHomeBinding
 import com.mikeschvedov.ifood.utils.permissions.Permission
 import com.mikeschvedov.ifood.utils.permissions.PermissionManager
 import dagger.hilt.android.AndroidEntryPoint
+import org.apache.commons.io.FileUtils
 import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.nio.channels.FileChannel
+import java.io.IOException
 import java.util.*
 
 
@@ -136,7 +141,8 @@ class HomeFragment : Fragment() {
         currentMonth = calendar[Calendar.MONTH]
         currentDay = calendar[Calendar.DAY_OF_MONTH]
 
-        //   backupDatabase()
+        Toast.makeText(requireContext(), "BACKING UP DATABASE", Toast.LENGTH_SHORT).show()
+        backupDatabase()
     }
 
     private fun hideRecyclerView(b: Boolean) {
@@ -182,60 +188,49 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    fun backupDatabase(){
+   private fun backupDatabase(){
+        // Requesting Storage permissions
         PermissionManager.from(this)
             .request(Permission.Storage)
             .rationale("Allow writing to storage?")
             .checkPermission {  granted: Boolean ->
                 if(granted){
                     println("Permission Granted")
-                    copyFile()
+                    // Doing the actually backup
+                    copyAllRelatedFiles()
                 }else{
-                    Toast.makeText(requireContext(), "Permisison Denied", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Permission Denied", Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
-    private fun copyFile() {
+    private fun  copyAllRelatedFiles(){
 
-        println("================================================================================")
-        println("============================== Initializing file copy =======================================")
-        println("================================================================================")
+        /* Don't forget that we are using "android:requestLegacyExternalStorage="true" in the Manifest application tag.
+             Otherwise it doesn't let us write to the storage...*/
+
+        //Each time we open our app, it will backup our database.
+        //It will also override backups that were created in the same date, because they have the same folder names
+
+        val baseDatabasePath =  "data/data/com.mikeschvedov.ifood/databases"
+        val destinationBackupPath =  Environment.getExternalStorageDirectory().absolutePath //can be found on phone -> internal storage -> root
+        val dateFormat = "${currentDay}_${currentMonth}_${currentYear}"
+
+        copyFile("${baseDatabasePath}/FoodDB","${destinationBackupPath}/iFoodBackups/Backup_$dateFormat/FoodDB_Backup")
+        copyFile("${baseDatabasePath}/FoodDB-shm","${destinationBackupPath}/iFoodBackups/Backup_$dateFormat/FoodDB-shm_Backup")
+        copyFile("${baseDatabasePath}/FoodDB-wal","${destinationBackupPath}/iFoodBackups/Backup_$dateFormat/FoodDB-wal_Backup")
+    }
+
+    private fun copyFile(sourcePath: String, destinationPath: String) {
+        val source = File(sourcePath)
+        val destination = File(destinationPath)
 
         try {
-            //This is
-            val externalStorage: File = Environment.getExternalStorageDirectory()
-
-            println("this is sd: $externalStorage")
-
-            val data: File = Environment.getDataDirectory()
-
-            println("this is data: $data")
-
-                println("Canwrite")
-
-            ///data/data/com.mikeschvedov.ifood/databases    copy this into  externalStorage
-
-            // copy all contents from folder
-
-                val currentDBPath: String = requireContext().getDatabasePath("FoodDB").absolutePath
-
-                println("currentDBPath: $currentDBPath")
-
-                val currentDB = File(currentDBPath)
-                val backupDB = File(externalStorage, "new")
-                if (currentDB.exists()) {
-                    val src: FileChannel = FileInputStream(currentDB).getChannel()
-                    val dst: FileChannel = FileOutputStream(backupDB).getChannel()
-                    dst.transferFrom(src, 0, src.size())
-                    src.close()
-                    dst.close()
-                }
-
-        } catch (e: Exception) {
+            // Using the commons-io library (we use it as a local jar in the libs folder)
+            FileUtils.copyFile(source, destination)
+        } catch (e: IOException) {
             e.printStackTrace()
         }
     }
-
 
 }
