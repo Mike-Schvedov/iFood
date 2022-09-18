@@ -85,8 +85,17 @@ class HomeRecyclerAdapter @Inject constructor(
         // --- Setting the calories --- //
         holder.calories.text = item.calories.toString()
 
-        // --- Setting the image --- //
-        holder.image.setImageResource(item.image)
+        //  -- Converting imageName to ID -- //
+        // (because the id's are not stable and always change -  we save the image by NAME inside the DB)
+
+        // get fragment's context
+        val context = holder.calories.context
+        // get imageName from item
+        val resourceName = item.imageName
+        // find the resource ID using its NAME
+       val resourceId =  context.resources.getIdentifier(resourceName, "drawable", context.packageName);
+        // setting the ID
+        holder.image.setImageResource(resourceId)
 
         // -- Sending the clicked item as callback -- //
         holder.layout.setOnClickListener {

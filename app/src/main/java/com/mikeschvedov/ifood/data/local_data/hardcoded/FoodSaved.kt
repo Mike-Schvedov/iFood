@@ -3,7 +3,7 @@ package com.mikeschvedov.ifood.data.local_data.hardcoded
 data class FoodSaved(
     var name: String,
     var calPer100gr: Int,
-    var image: Int,
+    var imageID: Int,
     var asUnit: Boolean,
     var caloriesPerUnit: Int,
     var category: FoodCategory

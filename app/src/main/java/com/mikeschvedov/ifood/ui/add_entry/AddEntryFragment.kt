@@ -32,7 +32,7 @@ class AddEntryFragment : Fragment() {
 
     private var thisItemsCalPer100: Int = 0
     private var thisItemsCalPerUnit: Int = 0
-    var selectedImageUrl: Int = 0
+    var selectedImageID: Int = 0
     var itemCountedasUnit: Boolean = false
     var itemCategory: FoodCategory = FoodCategory.DEFAULT
 
@@ -91,7 +91,7 @@ class AddEntryFragment : Fragment() {
                 // We store our selected item's core calories
                 thisItemsCalPer100 = listAdapter.getItem(position)?.calPer100gr ?: 0
                 // We store our selected item's image
-                selectedImageUrl = listAdapter.getItem(position)?.image ?: 0
+                selectedImageID = listAdapter.getItem(position)?.imageID ?: 0
                 // We store our selected item's category
                 itemCategory = listAdapter.getItem(position)?.category ?: FoodCategory.DEFAULT
                 // We set it in our textview
@@ -180,9 +180,14 @@ class AddEntryFragment : Fragment() {
                     if (isValidInput(insertedUnits)) {
                         val itemName = searchviewXml.query.toString()
                         val calories = insertedUnits.toInt() * thisItemsCalPerUnit
-                        val image = selectedImageUrl
+                        val imageId = selectedImageID
                         // Sending entry to view model
-                        addEntryAndGoBackHome(itemName, calories, image, insertedUnits, itemCategory)
+                        addEntryAndGoBackHome(
+                            itemName,
+                            calories,
+                            imageId,
+                            insertedUnits,
+                            itemCategory)
                     } else {
                         requireContext().displayToast("יש להכניס כמות תקינה")
                     }
@@ -192,7 +197,7 @@ class AddEntryFragment : Fragment() {
                         val itemName = searchviewXml.query.toString()
                         val calories =
                             calculateFinalCalories(insertedGrams.toInt(), thisItemsCalPer100)
-                        val image = selectedImageUrl
+                        val image = selectedImageID
                         // Sending entry to view model
                         addEntryAndGoBackHome(
                             itemName,
@@ -215,7 +220,7 @@ class AddEntryFragment : Fragment() {
     private fun addEntryAndGoBackHome(
         itemName: String,
         calories: Int,
-        image: Int,
+        imageId: Int,
         gramsOrUnit: String,
         itemCategory: FoodCategory
     ) {
@@ -225,12 +230,16 @@ class AddEntryFragment : Fragment() {
         val month = arguments?.getInt("month") ?: 0
         val year = arguments?.getInt("year") ?: 0
 
+        // We convert the imageId to get the name of the resource (id's are always changing so we should not save them)
+        // R.id.onion   =>  we only save onion
+        val imageResourceName  = resources.getResourceEntryName(imageId)
+
         // Create new entry
         val newEntry = FoodEntry(
             foodName = itemName,
             calories = calories,
             gramsOrUnit = gramsOrUnit, //This has no use, it is only for extra info
-            image = image,
+            imageName = imageResourceName,
             hour = hour,
             day = day,
             month = month,

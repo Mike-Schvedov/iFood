@@ -24,35 +24,10 @@ import android.os.Environment
 
 
 // Worked on Lately:
+//Todo: the images id are always chaning so we have to save the resource name instead, look at example below.
 //Ordered list by hours
 //Now we can delete entries when clicked on.
 //Added 'Total daily calories' to top of home fragment.
 //Save entries using dynamic dates (not hardcoded like now)
 
 
-/*
-private fun copyFile() {
-    try {
-        val sd: File = Environment.getExternalStorageDirectory()
-        val data: File = Environment.getDataDirectory()
-        if (sd.canWrite()) {
-            val currentDBPath: String = getDatabasePath("photex_db").getAbsolutePath()
-            val backupDBPath = "photex_db.db"
-            //previous wrong  code
-            // **File currentDB = new File(data,currentDBPath);**
-            // correct code
-            val currentDB = File(currentDBPath)
-            val backupDB = File(sd, backupDBPath)
-            if (currentDB.exists()) {
-                val src: FileChannel = FileInputStream(currentDB).getChannel()
-                val dst: FileChannel = FileOutputStream(backupDB).getChannel()
-                dst.transferFrom(src, 0, src.size())
-                src.close()
-                dst.close()
-            }
-        }
-    } catch (e: Exception) {
-        e.printStackTrace()
-    }
-}
-*/

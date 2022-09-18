@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikeschvedov.ifood.R
 import com.mikeschvedov.ifood.data.local_data.database.entities.FoodEntry
 import com.mikeschvedov.ifood.databinding.FragmentHomeBinding
+import com.mikeschvedov.ifood.utils.permissions.Permission
+import com.mikeschvedov.ifood.utils.permissions.PermissionManager
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.nio.channels.FileChannel
 import java.util.*
 
 
@@ -128,6 +135,8 @@ class HomeFragment : Fragment() {
         // We actually get the month at -1 but it's ok, because the date picker needs to receive -1 (it displays +1)
         currentMonth = calendar[Calendar.MONTH]
         currentDay = calendar[Calendar.DAY_OF_MONTH]
+
+        //   backupDatabase()
     }
 
     private fun hideRecyclerView(b: Boolean) {
@@ -172,4 +181,61 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    fun backupDatabase(){
+        PermissionManager.from(this)
+            .request(Permission.Storage)
+            .rationale("Allow writing to storage?")
+            .checkPermission {  granted: Boolean ->
+                if(granted){
+                    println("Permission Granted")
+                    copyFile()
+                }else{
+                    Toast.makeText(requireContext(), "Permisison Denied", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    private fun copyFile() {
+
+        println("================================================================================")
+        println("============================== Initializing file copy =======================================")
+        println("================================================================================")
+
+        try {
+            //This is
+            val externalStorage: File = Environment.getExternalStorageDirectory()
+
+            println("this is sd: $externalStorage")
+
+            val data: File = Environment.getDataDirectory()
+
+            println("this is data: $data")
+
+                println("Canwrite")
+
+            ///data/data/com.mikeschvedov.ifood/databases    copy this into  externalStorage
+
+            // copy all contents from folder
+
+                val currentDBPath: String = requireContext().getDatabasePath("FoodDB").absolutePath
+
+                println("currentDBPath: $currentDBPath")
+
+                val currentDB = File(currentDBPath)
+                val backupDB = File(externalStorage, "new")
+                if (currentDB.exists()) {
+                    val src: FileChannel = FileInputStream(currentDB).getChannel()
+                    val dst: FileChannel = FileOutputStream(backupDB).getChannel()
+                    dst.transferFrom(src, 0, src.size())
+                    src.close()
+                    dst.close()
+                }
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+
 }

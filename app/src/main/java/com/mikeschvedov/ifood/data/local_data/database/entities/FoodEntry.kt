@@ -12,7 +12,7 @@ data class FoodEntry(
     val foodName: String,
     val calories: Int,
     val gramsOrUnit: String, //This has no use, it is only for extra info
-    val image: Int,
+    val imageName: String,
     val hour: Int,
     val day: Int,
     val month: Int,
