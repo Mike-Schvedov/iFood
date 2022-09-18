@@ -75,6 +75,7 @@ class FoodArchive {
             //פ
             FoodSaved("פוטטו [מקדונלדס]", 190, R.drawable.potatos_mcdonalds, false, 0,FoodCategory.DEFAULT),
             FoodSaved("פיתה", 250, R.drawable.pita, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("פסטה", 150, R.drawable.pasta, false, 0,FoodCategory.DEFAULT),
             FoodSaved("פתית", 380, R.drawable.patit, false, 0,FoodCategory.DEFAULT),
             //צ
 
@@ -83,6 +84,7 @@ class FoodArchive {
             FoodSaved("קוסקוס", 120, R.drawable.kuskus, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קפה עם חלב", 60, R.drawable.coffee, false, 0,FoodCategory.DEFAULT),
             //ר
+            FoodSaved("רוטב בולונז", 200, R.drawable.bolonez, false, 0,FoodCategory.DEFAULT),
             FoodSaved("רוטב עגבניות/ירקות", 40, R.drawable.totato_sauce, false, 0,FoodCategory.DEFAULT),
             FoodSaved("ריזיקה/כללי", 100, R.drawable.general, false, 0,FoodCategory.DEFAULT),
             FoodSaved("ריצה/אימון", -100, R.drawable.run, false, 0,FoodCategory.DEFAULT),

@@ -24,7 +24,8 @@ import android.os.Environment
 
 
 // Worked on Lately:
-//Todo: the images id are always chaning so we have to save the resource name instead, look at example below.
+//Now we are backing up our database each time we open the app
+//the images id are always chaning so we have to save the resource name instead, look at example below.
 //Ordered list by hours
 //Now we can delete entries when clicked on.
 //Added 'Total daily calories' to top of home fragment.
