@@ -14,6 +14,7 @@
         android:background="@drawable/button_bg_search"
         app:layout_constraintStart_toStartOf="parent"
         android:textStyle="bold"
+        android:visibility="gone"
         android:fontFamily="@font/secular_one"
         app:layout_constraintEnd_toStartOf="@id/guideline_vertical"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,6 +35,7 @@
         android:id="@+id/date_picker_home"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/guideline_H20"
         app:layout_constraintStart_toEndOf="@id/guideline_vertical"
@@ -42,6 +44,26 @@
 
         android:datePickerMode="spinner"
         />
+
+    <TextView
+        android:id="@+id/main_daily_date"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="15/9/22"
+        android:gravity="center_vertical|center_horizontal"
+        android:textSize="48sp"
+        android:shadowRadius="5"
+        android:shadowDy="2"
+        android:shadowDx="2"
+        android:shadowColor="@color/app_brown_1"
+        android:textColor="@color/black"
+        android:fontFamily="@font/secular_one"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline_H20"
+       />
+
 
     <TextView
         android:layout_width="0dp"

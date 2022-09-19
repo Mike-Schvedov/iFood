@@ -17,8 +17,6 @@ import android.os.Environment
 // Todo: combine both unit/gram edit texts
 
 // ------ bug fixes ----- //
-// Todo: when we click on the x and remove the query, we are stuck with the unit/grams layout insead of returning to the list
-// Todo: clear qeury when leaving add entry fragment
 
 
 // Worked on Lately:

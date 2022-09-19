@@ -1,11 +1,7 @@
 package com.mikeschvedov.ifood.ui.home
 
 
-import android.Manifest
-import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-import android.app.Activity
 import android.app.Dialog
-import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -17,8 +13,6 @@ import android.view.Window
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -89,7 +83,9 @@ class HomeFragment : Fragment() {
         binding.searchButton.setOnClickListener{
             // Loading the expenses after picking another date
             populateRecyclerList()
+            showDailyTitle()
         }
+
         binding.fabAddEntry.setOnClickListener {
             val dateBundle = Bundle()
             dateBundle.putInt("hour", currentHour)
@@ -98,6 +94,26 @@ class HomeFragment : Fragment() {
             dateBundle.putInt("year", homeDatePicker.year)
             findNavController().navigate(R.id.action_HomeFragment_to_AddEntryFragment, dateBundle)
         }
+
+        binding.mainDailyDate.setOnClickListener {
+          hideDailyTitle()
+        }
+    }
+
+    fun setDailyTitle(currentDay: Int, currentMonth: Int, currentYear: Int) {
+        binding.mainDailyDate.text = "$currentDay/${currentMonth + 1}/${currentYear.toString().drop(2)}"
+    }
+
+    fun showDailyTitle(){
+        binding.mainDailyDate.visibility = View.VISIBLE
+        binding.searchButton.visibility = View.GONE
+        binding.datePickerHome.visibility = View.GONE
+    }
+
+    fun hideDailyTitle(){
+        binding.mainDailyDate.visibility = View.GONE
+        binding.searchButton.visibility = View.VISIBLE
+        binding.datePickerHome.visibility = View.VISIBLE
     }
 
     private fun observers() {
@@ -118,11 +134,8 @@ class HomeFragment : Fragment() {
             // increasing by 1 because the date picker actually stands on -1
             month = homeDatePicker.month+1,
             year = homeDatePicker.year)
-        println("GETTING THIS DATE:")
-        println(homeDatePicker.dayOfMonth)
-        println(homeDatePicker.month+1)
-        println(homeDatePicker.year)
 
+        setDailyTitle(homeDatePicker.dayOfMonth, homeDatePicker.month, homeDatePicker.year)
 
     }
 
@@ -141,6 +154,7 @@ class HomeFragment : Fragment() {
         currentMonth = calendar[Calendar.MONTH]
         currentDay = calendar[Calendar.DAY_OF_MONTH]
 
+        // Backup database
         Toast.makeText(requireContext(), "BACKING UP DATABASE", Toast.LENGTH_SHORT).show()
         backupDatabase()
     }

@@ -50,6 +50,15 @@ class AddEntryFragment : Fragment() {
         _binding = FragmentAddEntryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
+        // Add the date we want to add entry to, on the save button
+        val day = arguments?.getInt("day") ?: 0
+        val month = arguments?.getInt("month") ?: 0
+        val year = arguments?.getInt("year") ?: 0
+        val addToDate = "$day/$month/${year.toString().drop(2)}"
+        binding.buttonSave.text = "הוסף ל-${addToDate}"
+
+
         // Creating the list Adapter
         val listAdapter: ArrayAdapter<FoodSaved> = ArrayAdapter(
             requireContext(),
