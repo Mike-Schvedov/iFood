@@ -1,17 +1,18 @@
 package com.mikeschvedov.ifood.ui.activity
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
-import androidx.appcompat.app.AppCompatDelegate
 import com.mikeschvedov.ifood.R
 import com.mikeschvedov.ifood.databinding.ActivityMainBinding
+import com.mikeschvedov.ifood.ui.home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -54,5 +55,16 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
+        val fragment: Fragment? =
+            supportFragmentManager.findFragmentByTag("HomeFragment") as HomeFragment?
+        if (fragment != null && fragment.isResumed) {
+            //Disable back press
+        } else {
+            // Allow back press
+            super.onBackPressed()
+        }
     }
 }

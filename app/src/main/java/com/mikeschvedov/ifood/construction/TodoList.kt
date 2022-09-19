@@ -12,14 +12,12 @@ import android.os.Environment
 // ------ big features ----- //
 //Todo: add app widget
 //Todo: Leave the weight fragment and chart to the end, it is a feature that is optional in the future
-//Todo: feature to back up the database file or print all data to file
 
 // ------ optimization ----- //
 // Todo: combine both unit/gram edit texts
 
 // ------ bug fixes ----- //
 // Todo: when we click on the x and remove the query, we are stuck with the unit/grams layout insead of returning to the list
-// Todo: when we press back button in home just quit app
 // Todo: clear qeury when leaving add entry fragment
 
 

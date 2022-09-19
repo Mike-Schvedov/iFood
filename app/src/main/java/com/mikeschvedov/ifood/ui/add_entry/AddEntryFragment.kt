@@ -41,6 +41,7 @@ class AddEntryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+
         /* ViewModel */
         addEntryViewModel =
             ViewModelProvider(this).get(AddEntryViewModel::class.java)
@@ -78,6 +79,14 @@ class AddEntryFragment : Fragment() {
                 // Runs each time there is a change inside the search view
                 override fun onQueryTextChange(query: String?): Boolean {
                     listAdapter.filter.filter(query)
+                    // if the query is empty hide the unit/grams layout
+                    if(query.isNullOrEmpty()){
+                        displayCalculationByUnit.visibility = View.GONE
+                        displayCalculationByWeight.visibility = View.GONE
+                        unitsEdittextXml.text.clear()
+                        gramsEdittextXml.text.clear()
+                        listviewXml.visibility = View.VISIBLE
+                    }
                     return false
                 }
             })
@@ -224,6 +233,7 @@ class AddEntryFragment : Fragment() {
         gramsOrUnit: String,
         itemCategory: FoodCategory
     ) {
+
         // Get current time and date from bundle sent
         val hour = arguments?.getInt("hour") ?: 0
         val day = arguments?.getInt("day") ?: 0
@@ -247,6 +257,11 @@ class AddEntryFragment : Fragment() {
             itemCategory = itemCategory
         )
         addEntryViewModel.addNewEntryToDB(newEntry)
+        // Clear the query and the edit texts
+        binding.searchviewXml.setQuery("", false)
+        binding.unitsEdittextXml.text.clear()
+        binding.gramsEdittextXml.text.clear()
+
         // Go back home
         findNavController().navigate(R.id.action_AddEntryFragment_to_HomeFragment)
     }
