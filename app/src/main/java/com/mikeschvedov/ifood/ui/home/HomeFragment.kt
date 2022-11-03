@@ -228,8 +228,7 @@ class HomeFragment : Fragment() {
 
         val baseDatabasePath =  "data/data/com.mikeschvedov.ifood/databases"
         val destinationBackupPath =  Environment.getExternalStorageDirectory().absolutePath //can be found on phone -> internal storage -> root
-        val dateFormat = "${currentDay}_${currentMonth}_${currentYear}"
-
+        val dateFormat = "${currentDay}_${currentMonth+1}_${currentYear}"
         copyFile("${baseDatabasePath}/FoodDB","${destinationBackupPath}/iFoodBackups/Backup_$dateFormat/FoodDB_Backup")
         copyFile("${baseDatabasePath}/FoodDB-shm","${destinationBackupPath}/iFoodBackups/Backup_$dateFormat/FoodDB-shm_Backup")
         copyFile("${baseDatabasePath}/FoodDB-wal","${destinationBackupPath}/iFoodBackups/Backup_$dateFormat/FoodDB-wal_Backup")

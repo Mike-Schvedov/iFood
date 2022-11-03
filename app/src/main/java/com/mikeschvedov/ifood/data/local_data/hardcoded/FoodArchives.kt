@@ -23,6 +23,7 @@ class FoodArchive {
             FoodSaved("גבינה צהובה מופחתת 9%", 200, R.drawable.cheese, false, 0,FoodCategory.DEFAULT),
             FoodSaved("ג'ל ריצה", 0, R.drawable.gel, true, 100,FoodCategory.DEFAULT),
             FoodSaved("גמבה", 31, R.drawable.bellpeper, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("גרעיני חמנייה עם קליפה", 300, R.drawable.sunflower, false, 0,FoodCategory.DEFAULT),
             //ד
             FoodSaved("דג מלרוזה", 85, R.drawable.marloza, false, 0,FoodCategory.DEFAULT),
             FoodSaved("דג סלומון", 200, R.drawable.salmon, false, 0,FoodCategory.DEFAULT),
