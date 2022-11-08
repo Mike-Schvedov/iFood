@@ -24,6 +24,7 @@ class FoodArchive {
             FoodSaved("גבינה בולגרית 16%", 200, R.drawable.bulgarian_five, false, 0,FoodCategory.DEFAULT),
 
             FoodSaved("גבינה צהובה מופחתת 9%", 200, R.drawable.cheese, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("גבינה צהובה עמק 28%", 350, R.drawable.emeqcheese, false, 0,FoodCategory.DEFAULT),
             FoodSaved("ג'ל ריצה", 0, R.drawable.gel, true, 100,FoodCategory.DEFAULT),
             FoodSaved("גמבה", 31, R.drawable.bellpeper, false, 0,FoodCategory.DEFAULT),
             FoodSaved("גרעיני חמנייה עם קליפה", 300, R.drawable.sunflower, false, 0,FoodCategory.DEFAULT),
