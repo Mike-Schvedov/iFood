@@ -15,11 +15,14 @@ class FoodArchive {
             //ב
             FoodSaved("ביג מאק (ללא רוטב)", 0, R.drawable.bigmac, true, 350,FoodCategory.DEFAULT),
             FoodSaved("ביצה", 155, R.drawable.egg, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("בננה", 90, R.drawable.banana, false, 0,FoodCategory.DEFAULT),
             FoodSaved("בצל", 32, R.drawable.onion, false, 0,FoodCategory.DEFAULT),
             FoodSaved("בצל ירוק", 32, R.drawable.scallion, false, 0,FoodCategory.DEFAULT),
             FoodSaved("בשר כללי (טחון, בקר)", 250, R.drawable.beef, false, 0,FoodCategory.DEFAULT),
             //ג
             FoodSaved("גבינה בולגרית 5%", 140, R.drawable.bulgarian_five, false, 0,FoodCategory.DEFAULT), //highest 140
+            FoodSaved("גבינה בולגרית 16%", 200, R.drawable.bulgarian_five, false, 0,FoodCategory.DEFAULT),
+
             FoodSaved("גבינה צהובה מופחתת 9%", 200, R.drawable.cheese, false, 0,FoodCategory.DEFAULT),
             FoodSaved("ג'ל ריצה", 0, R.drawable.gel, true, 100,FoodCategory.DEFAULT),
             FoodSaved("גמבה", 31, R.drawable.bellpeper, false, 0,FoodCategory.DEFAULT),
@@ -34,7 +37,9 @@ class FoodArchive {
             //ז
             FoodSaved("זיתים שחורים (ללא גלעין)", 171, R.drawable.blackolive, false, 0,FoodCategory.DEFAULT),
             //ח
+            FoodSaved("חומוס", 200, R.drawable.humus, false, 0,FoodCategory.DEFAULT),
             FoodSaved("חזה עוף", 170, R.drawable.chicken_breast, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("חזה עוף בקוקוס", 170, R.drawable.chikencoconut, false, 0,FoodCategory.DEFAULT),
             FoodSaved("חזרת", 70, R.drawable.hazeret, false, 0,FoodCategory.DEFAULT),
             FoodSaved("חיטה מבושלת", 150, R.drawable.wheat, false, 0,FoodCategory.DEFAULT),
             FoodSaved("חלב", 60, R.drawable.milk, false, 0,FoodCategory.DEFAULT),
@@ -76,12 +81,14 @@ class FoodArchive {
             //פ
             FoodSaved("פוטטו [מקדונלדס]", 190, R.drawable.potatos_mcdonalds, false, 0,FoodCategory.DEFAULT),
             FoodSaved("פיתה", 250, R.drawable.pita, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("פלאפל", 330, R.drawable.falafel, false, 0,FoodCategory.DEFAULT),
             FoodSaved("פסטה", 150, R.drawable.pasta, false, 0,FoodCategory.DEFAULT),
             FoodSaved("פתית", 380, R.drawable.patit, false, 0,FoodCategory.DEFAULT),
             //צ
 
             //ק
             FoodSaved("קטשופ", 110, R.drawable.ketshup, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("קולורבי", 27, R.drawable.kolorabi, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קוסקוס", 120, R.drawable.kuskus, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קפה עם חלב", 60, R.drawable.coffee, false, 0,FoodCategory.DEFAULT),
             //ר
@@ -94,6 +101,8 @@ class FoodArchive {
             FoodSaved("שמן קנולה", 830, R.drawable.kanola, false, 0,FoodCategory.DEFAULT),
             FoodSaved("שמן זית", 822, R.drawable.olive_oil, false, 0,FoodCategory.DEFAULT),
             FoodSaved("שניצלונים קופאים", 240, R.drawable.schnitselonim, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("שניצל מטוגן", 300, R.drawable.schnitzel, false, 0,FoodCategory.DEFAULT),
+
             //ת
             FoodSaved("תירס", 90, R.drawable.corn, false, 0,FoodCategory.DEFAULT),
             FoodSaved("תפוח אדמה/פירה", 93, R.drawable.potato, false, 0,FoodCategory.DEFAULT),
