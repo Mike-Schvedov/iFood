@@ -9,6 +9,7 @@ class FoodArchive {
             //א
             FoodSaved("אבוקדו", 160, R.drawable.avocado, false, 0, FoodCategory.DEFAULT),
             FoodSaved("אגס", 59, R.drawable.pear, false, 0 ,FoodCategory.DEFAULT),
+            FoodSaved("אגס נאשי / אסיאתי", 50, R.drawable.pearnashi, false, 0 ,FoodCategory.DEFAULT),
             FoodSaved("אורז", 130, R.drawable.rice, false, 0,FoodCategory.DEFAULT),
             FoodSaved("אפרסק", 40, R.drawable.peach, false, 0,FoodCategory.DEFAULT),
             FoodSaved("אקסל", 0, R.drawable.xl, true, 120,FoodCategory.DEFAULT),
@@ -22,9 +23,9 @@ class FoodArchive {
             //ג
             FoodSaved("גבינה בולגרית 5%", 140, R.drawable.bulgarian_five, false, 0,FoodCategory.DEFAULT), //highest 140
             FoodSaved("גבינה בולגרית 16%", 200, R.drawable.bulgarian_five, false, 0,FoodCategory.DEFAULT),
-
             FoodSaved("גבינה צהובה מופחתת 9%", 200, R.drawable.cheese, false, 0,FoodCategory.DEFAULT),
             FoodSaved("גבינה צהובה עמק 28%", 350, R.drawable.emeqcheese, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("גויאבה", 70, R.drawable.guiava, false, 0,FoodCategory.DEFAULT),
             FoodSaved("ג'ל ריצה", 0, R.drawable.gel, true, 100,FoodCategory.DEFAULT),
             FoodSaved("גמבה", 31, R.drawable.bellpeper, false, 0,FoodCategory.DEFAULT),
             FoodSaved("גרעיני חמנייה עם קליפה", 300, R.drawable.sunflower, false, 0,FoodCategory.DEFAULT),
