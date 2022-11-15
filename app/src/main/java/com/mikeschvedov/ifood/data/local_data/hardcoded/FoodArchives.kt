@@ -31,7 +31,7 @@ class FoodArchive {
             FoodSaved("גרעיני חמנייה עם קליפה", 300, R.drawable.sunflower, false, 0,FoodCategory.DEFAULT),
             //ד
             FoodSaved("דג מלרוזה", 85, R.drawable.marloza, false, 0,FoodCategory.DEFAULT),
-            FoodSaved("דג סלומון", 200, R.drawable.salmon, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("דג סלומון", 210, R.drawable.salmon, false, 0,FoodCategory.DEFAULT),
             //ה
             FoodSaved("המבורגגר אנגוס", 300, R.drawable.angus, false, 0,FoodCategory.DEFAULT),
             //ו
@@ -60,6 +60,8 @@ class FoodArchive {
             FoodSaved("מיני מק-רויאל (ללא רוטב)", 0, R.drawable.minimc, true, 200,FoodCategory.DEFAULT),
             FoodSaved("מלפפון", 15, R.drawable.cucumber, false, 0,FoodCategory.DEFAULT),
             FoodSaved("מלון", 35, R.drawable.melon, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("ממרח כבד", 170, R.drawable.patte, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("ממרח סלומון", 210, R.drawable.patte, false, 0,FoodCategory.DEFAULT),
             FoodSaved("מנה חמה בולונז", 0, R.drawable.manahama, true, 230,FoodCategory.DEFAULT),
             FoodSaved("מעדן GO", 0, R.drawable.maadango, true, 110,FoodCategory.DEFAULT),
             FoodSaved("מעדן הגולן", 0, R.drawable.golan, true, 168,FoodCategory.DEFAULT),
@@ -83,6 +85,8 @@ class FoodArchive {
             //פ
             FoodSaved("פוטטו [מקדונלדס]", 190, R.drawable.potatos_mcdonalds, false, 0,FoodCategory.DEFAULT),
             FoodSaved("פיתה", 250, R.drawable.pita, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("פירכיות", 370, R.drawable.pirhit, false, 0,FoodCategory.DEFAULT),
+
             FoodSaved("פלאפל", 330, R.drawable.falafel, false, 0,FoodCategory.DEFAULT),
             FoodSaved("פסטה", 150, R.drawable.pasta, false, 0,FoodCategory.DEFAULT),
             FoodSaved("פתית", 380, R.drawable.patit, false, 0,FoodCategory.DEFAULT),
