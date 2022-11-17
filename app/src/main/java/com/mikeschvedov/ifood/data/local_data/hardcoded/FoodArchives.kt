@@ -98,6 +98,7 @@ class FoodArchive {
             FoodSaved("קוסקוס", 120, R.drawable.kuskus, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קפה עם חלב", 60, R.drawable.coffee, false, 0,FoodCategory.DEFAULT),
             //ר
+            FoodSaved("רוטב אלף האיים לייט", 186, R.drawable.thousandlite, false, 0,FoodCategory.DEFAULT),
             FoodSaved("רוטב בולונז", 200, R.drawable.bolonez, false, 0,FoodCategory.DEFAULT),
             FoodSaved("רוטב עגבניות/ירקות", 40, R.drawable.totato_sauce, false, 0,FoodCategory.DEFAULT),
             FoodSaved("ריזיקה/כללי", 100, R.drawable.general, false, 0,FoodCategory.DEFAULT),
