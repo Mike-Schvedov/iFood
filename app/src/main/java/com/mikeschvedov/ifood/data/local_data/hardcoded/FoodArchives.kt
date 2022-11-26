@@ -11,6 +11,7 @@ class FoodArchive {
             FoodSaved("אגס", 59, R.drawable.pear, false, 0 ,FoodCategory.DEFAULT),
             FoodSaved("אגס נאשי / אסיאתי", 50, R.drawable.pearnashi, false, 0 ,FoodCategory.DEFAULT),
             FoodSaved("אורז", 130, R.drawable.rice, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("אפרסמון", 70, R.drawable.persimmon, false, 0,FoodCategory.DEFAULT),
             FoodSaved("אפרסק", 40, R.drawable.peach, false, 0,FoodCategory.DEFAULT),
             FoodSaved("אקסל", 0, R.drawable.xl, true, 120,FoodCategory.DEFAULT),
             //ב
@@ -73,6 +74,8 @@ class FoodArchive {
 
             FoodSaved("נקטרינה", 44, R.drawable.nectarine, false, 0,FoodCategory.DEFAULT),
             FoodSaved("נקניקיות", 200, R.drawable.sausage, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("נקניקיות פיקולינו רוסיות", 500, R.drawable.pikolini, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("נקניקיות גבינה מעושנת", 350, R.drawable.smokedcheesenaknik, false, 0,FoodCategory.DEFAULT),
             //ס
             FoodSaved("סוכר", 400, R.drawable.sugar, false, 0,FoodCategory.DEFAULT),
 
@@ -96,6 +99,7 @@ class FoodArchive {
             FoodSaved("קטשופ", 110, R.drawable.ketshup, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קולורבי", 27, R.drawable.kolorabi, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קוסקוס", 120, R.drawable.kuskus, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("קליליות", 372, R.drawable.kliliot, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קפה עם חלב", 60, R.drawable.coffee, false, 0,FoodCategory.DEFAULT),
             //ר
             FoodSaved("רוטב אלף האיים לייט", 186, R.drawable.thousandlite, false, 0,FoodCategory.DEFAULT),
