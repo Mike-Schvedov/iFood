@@ -46,7 +46,9 @@ class FoodArchive {
             FoodSaved("חזרת", 70, R.drawable.hazeret, false, 0,FoodCategory.DEFAULT),
             FoodSaved("חיטה מבושלת", 150, R.drawable.wheat, false, 0,FoodCategory.DEFAULT),
             FoodSaved("חלב", 60, R.drawable.milk, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("חמאה", 734, R.drawable.butter, false, 0,FoodCategory.DEFAULT),
             //ט
+            FoodSaved("טונה אדומה", 130, R.drawable.redtuna, false, 0,FoodCategory.DEFAULT),
             FoodSaved("טונה במים", 100, R.drawable.tuna, false, 0,FoodCategory.DEFAULT),
             FoodSaved("טונה בשמן", 150, R.drawable.tuna, false, 0,FoodCategory.DEFAULT),
             //י
@@ -100,6 +102,7 @@ class FoodArchive {
             FoodSaved("קולורבי", 27, R.drawable.kolorabi, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קוסקוס", 120, R.drawable.kuskus, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קליליות", 372, R.drawable.kliliot, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("קלמנטינה/מנדרינה", 53, R.drawable.mandarin, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קפה עם חלב", 60, R.drawable.coffee, false, 0,FoodCategory.DEFAULT),
             //ר
             FoodSaved("רוטב אלף האיים לייט", 186, R.drawable.thousandlite, false, 0,FoodCategory.DEFAULT),
