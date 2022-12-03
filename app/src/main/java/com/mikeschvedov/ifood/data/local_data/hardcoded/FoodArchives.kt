@@ -59,7 +59,10 @@ class FoodArchive {
             FoodSaved("לאבנה 11%", 144, R.drawable.labane, false, 0,FoodCategory.DEFAULT),
             FoodSaved("לחם שיפון מלא", 220, R.drawable.bead, false, 0,FoodCategory.DEFAULT),
             FoodSaved("לחם פרנה", 280, R.drawable.frena, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("לחמניות המבורגר", 350, R.drawable.buns, false, 0,FoodCategory.DEFAULT),
             //מ
+            FoodSaved("מיונז לייט", 290, R.drawable.mayolite, false, 0,FoodCategory.DEFAULT),
+
             FoodSaved("מיני מק-רויאל (ללא רוטב)", 0, R.drawable.minimc, true, 200,FoodCategory.DEFAULT),
             FoodSaved("מלפפון", 15, R.drawable.cucumber, false, 0,FoodCategory.DEFAULT),
             FoodSaved("מלון", 35, R.drawable.melon, false, 0,FoodCategory.DEFAULT),
@@ -96,7 +99,7 @@ class FoodArchive {
             FoodSaved("פסטה", 150, R.drawable.pasta, false, 0,FoodCategory.DEFAULT),
             FoodSaved("פתית", 380, R.drawable.patit, false, 0,FoodCategory.DEFAULT),
             //צ
-
+            FoodSaved("צימיצורי", 130, R.drawable.chimichuri, false, 0,FoodCategory.DEFAULT),
             //ק
             FoodSaved("קטשופ", 110, R.drawable.ketshup, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קולורבי", 27, R.drawable.kolorabi, false, 0,FoodCategory.DEFAULT),
