@@ -66,6 +66,7 @@ class FoodArchive {
             FoodSaved("מיני מק-רויאל (ללא רוטב)", 0, R.drawable.minimc, true, 200,FoodCategory.DEFAULT),
             FoodSaved("מלפפון", 15, R.drawable.cucumber, false, 0,FoodCategory.DEFAULT),
             FoodSaved("מלון", 35, R.drawable.melon, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("ממולאים", 150, R.drawable.memulaim, false, 0,FoodCategory.DEFAULT),
             FoodSaved("ממרח כבד", 170, R.drawable.patte, false, 0,FoodCategory.DEFAULT),
             FoodSaved("ממרח סלומון", 210, R.drawable.patte, false, 0,FoodCategory.DEFAULT),
             FoodSaved("מנה חמה בולונז", 0, R.drawable.manahama, true, 230,FoodCategory.DEFAULT),
