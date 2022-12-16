@@ -11,6 +11,8 @@ class FoodArchive {
             FoodSaved("אגס", 59, R.drawable.pear, false, 0 ,FoodCategory.DEFAULT),
             FoodSaved("אגס נאשי / אסיאתי", 50, R.drawable.pearnashi, false, 0 ,FoodCategory.DEFAULT),
             FoodSaved("אורז", 130, R.drawable.rice, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("אפונה (גרגירים)", 84, R.drawable.peas, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("אפונה (תרמילים)", 42, R.drawable.peas_pods, false, 0,FoodCategory.DEFAULT),
             FoodSaved("אפרסמון", 70, R.drawable.persimmon, false, 0,FoodCategory.DEFAULT),
             FoodSaved("אפרסק", 40, R.drawable.peach, false, 0,FoodCategory.DEFAULT),
             FoodSaved("אקסל", 0, R.drawable.xl, true, 120,FoodCategory.DEFAULT),
@@ -54,6 +56,7 @@ class FoodArchive {
             //י
             FoodSaved("יין אדום", 85, R.drawable.wine, false, 0,FoodCategory.DEFAULT),
             //כ
+            FoodSaved("כוסמת", 92, R.drawable.kosemet, false, 0,FoodCategory.DEFAULT),
 
             //ל
             FoodSaved("לאבנה 11%", 144, R.drawable.labane, false, 0,FoodCategory.DEFAULT),
@@ -93,6 +96,7 @@ class FoodArchive {
 
             //פ
             FoodSaved("פוטטו [מקדונלדס]", 190, R.drawable.potatos_mcdonalds, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("פומלה / אשכולית", 40, R.drawable.pomela, false, 0,FoodCategory.DEFAULT),
             FoodSaved("פיתה", 250, R.drawable.pita, false, 0,FoodCategory.DEFAULT),
             FoodSaved("פירכיות", 370, R.drawable.pirhit, false, 0,FoodCategory.DEFAULT),
 
@@ -102,6 +106,7 @@ class FoodArchive {
             //צ
             FoodSaved("צימיצורי", 130, R.drawable.chimichuri, false, 0,FoodCategory.DEFAULT),
             //ק
+            FoodSaved("קבנוס", 325, R.drawable.kabanos, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קטשופ", 110, R.drawable.ketshup, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קולורבי", 27, R.drawable.kolorabi, false, 0,FoodCategory.DEFAULT),
             FoodSaved("קוסקוס", 120, R.drawable.kuskus, false, 0,FoodCategory.DEFAULT),
