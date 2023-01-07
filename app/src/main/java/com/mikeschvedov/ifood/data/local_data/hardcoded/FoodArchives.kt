@@ -19,6 +19,7 @@ class FoodArchive {
             //ב
             FoodSaved("ביג מאק (ללא רוטב)", 0, R.drawable.bigmac, true, 350,FoodCategory.DEFAULT),
             FoodSaved("ביצה", 155, R.drawable.egg, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("בירה ווינשטפנר (חצי ליטר)", 0, R.drawable.weinshtefen, true, 215,FoodCategory.DEFAULT),
             FoodSaved("בננה", 90, R.drawable.banana, false, 0,FoodCategory.DEFAULT),
             FoodSaved("בצל", 32, R.drawable.onion, false, 0,FoodCategory.DEFAULT),
             FoodSaved("בצל ירוק", 32, R.drawable.scallion, false, 0,FoodCategory.DEFAULT),
@@ -48,6 +49,7 @@ class FoodArchive {
             FoodSaved("חזרת", 70, R.drawable.hazeret, false, 0,FoodCategory.DEFAULT),
             FoodSaved("חיטה מבושלת", 150, R.drawable.wheat, false, 0,FoodCategory.DEFAULT),
             FoodSaved("חלב", 60, R.drawable.milk, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("חלב כחוש ומרוכז", 320, R.drawable.kahush, false, 0,FoodCategory.DEFAULT),
             FoodSaved("חמאה", 734, R.drawable.butter, false, 0,FoodCategory.DEFAULT),
             //ט
             FoodSaved("טונה אדומה", 130, R.drawable.redtuna, false, 0,FoodCategory.DEFAULT),
@@ -87,6 +89,7 @@ class FoodArchive {
             FoodSaved("נקניקיות גבינה מעושנת", 350, R.drawable.smokedcheesenaknik, false, 0,FoodCategory.DEFAULT),
             //ס
             FoodSaved("סוכר", 400, R.drawable.sugar, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("סופגנייה", 400, R.drawable.sufgania, false, 0,FoodCategory.DEFAULT),
 
             FoodSaved("סלט טונה", 114, R.drawable.tunasalad, false, 0,FoodCategory.DEFAULT),
             //ע
@@ -123,6 +126,8 @@ class FoodArchive {
             FoodSaved("שווארמה הודו", 200, R.drawable.shawarma, false, 0,FoodCategory.DEFAULT),
             FoodSaved("שמן קנולה", 830, R.drawable.kanola, false, 0,FoodCategory.DEFAULT),
             FoodSaved("שמן זית", 822, R.drawable.olive_oil, false, 0,FoodCategory.DEFAULT),
+            FoodSaved("שמנת חמוצה 15%", 159, R.drawable.hamutza, false, 0,FoodCategory.DEFAULT),
+
             FoodSaved("שניצלונים קופאים", 240, R.drawable.schnitselonim, false, 0,FoodCategory.DEFAULT),
             FoodSaved("שניצל מטוגן", 300, R.drawable.schnitzel, false, 0,FoodCategory.DEFAULT),
 

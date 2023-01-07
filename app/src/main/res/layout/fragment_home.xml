@@ -41,7 +41,6 @@
         app:layout_constraintStart_toEndOf="@id/guideline_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         android:calendarViewShown="false"
-
         android:datePickerMode="spinner"
         />
 
