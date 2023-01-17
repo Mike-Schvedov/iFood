@@ -31,7 +31,15 @@ class AddEntryFragment : Fragment() {
     private lateinit var addEntryViewModel: AddEntryViewModel
 
     private var thisItemsCalPer100: Int = 0
+    private var  thisItemsCarbsPer100: Int = 0
+    private var thisItemsProteinPer100: Int = 0
+    private var thisItemsFatsPer100: Int = 0
+
     private var thisItemsCalPerUnit: Int = 0
+    private var thisItemsCarbsPerUnit: Int = 0
+    private var thisItemsProteinPerUnit: Int = 0
+    private var thisItemsFatsPerUnit: Int = 0
+
     var selectedImageID: Int = 0
     var itemCountedasUnit: Boolean = false
     var itemCategory: FoodCategory = FoodCategory.DEFAULT
@@ -40,8 +48,6 @@ class AddEntryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-
         /* ViewModel */
         addEntryViewModel =
             ViewModelProvider(this).get(AddEntryViewModel::class.java)
@@ -50,24 +56,20 @@ class AddEntryFragment : Fragment() {
         _binding = FragmentAddEntryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
         // Add the date we want to add entry to, on the save button
-        val day = arguments?.getInt("day") ?: 0
-        val month = arguments?.getInt("month") ?: 0
+        val day =arguments?.getInt("day") ?: 0
+        val month= arguments?.getInt("month") ?: 0
         val year = arguments?.getInt("year") ?: 0
         val addToDate = "$day/$month/${year.toString().drop(2)}"
         binding.buttonSave.text = "הוסף ל-${addToDate}"
-
 
         // Creating the list Adapter
         val listAdapter: ArrayAdapter<FoodSaved> = ArrayAdapter(
             requireContext(),
             R.layout.simple_list_item_custom,
-            FoodArchive.foodDataList
-        )
+            FoodArchive.foodDataList)
 
         binding.apply {
-
             // Attaching our adapter to the list view xml
             listviewXml.adapter = listAdapter
 
@@ -77,7 +79,6 @@ class AddEntryFragment : Fragment() {
                 // Runs when the user presses enter inside the search view
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     searchviewXml.clearFocus()
-
                     // We check if the one of those name matches the query
                     //  if (FoodArchive.foodDataList.contains(query)) {
                     //       listAdapter.filter.filter(query)
@@ -108,6 +109,10 @@ class AddEntryFragment : Fragment() {
                 listviewXml.visibility = View.GONE
                 // We store our selected item's core calories
                 thisItemsCalPer100 = listAdapter.getItem(position)?.calPer100gr ?: 0
+                // Macros
+                thisItemsCarbsPer100 = listAdapter.getItem(position)?.carbPer100gr ?: 0
+                thisItemsProteinPer100 = listAdapter.getItem(position)?.proteinPer100gr ?: 0
+                thisItemsFatsPer100 = listAdapter.getItem(position)?.fatPer100gr ?: 0
                 // We store our selected item's image
                 selectedImageID = listAdapter.getItem(position)?.imageID ?: 0
                 // We store our selected item's category
@@ -120,6 +125,10 @@ class AddEntryFragment : Fragment() {
                 if (itemCountedasUnit) {
                     // Then store our selected item's perUnit calories
                     thisItemsCalPerUnit = listAdapter.getItem(position)?.caloriesPerUnit ?: 0
+                    // Settings Macros
+                    thisItemsCarbsPerUnit = listAdapter.getItem(position)?.carbPerUnit ?: 0
+                    thisItemsProteinPerUnit = listAdapter.getItem(position)?.proteinPerUnit ?: 0
+                    thisItemsFatsPerUnit = listAdapter.getItem(position)?.fatPerUnit ?: 0
                     // Show the by unit input section
                     displayCalculationByUnit.visibility = View.VISIBLE
                     // We display the cal per unit in our textview
@@ -185,27 +194,33 @@ class AddEntryFragment : Fragment() {
                 override fun afterTextChanged(s: Editable) {}
             })
 
-            /*-------------------------------Clicking on the save button--------------------------*/
+            /* ------------------------------Clicking on the save button------------------------- */
             buttonSave.setOnClickListener {
                 // if we deal by grams
                 val insertedGrams: String = gramsEdittextXml.text.toString()
                 // if we deal by unit
                 val insertedUnits: String = unitsEdittextXml.text.toString()
 
-
                 // -- BY UNIT -- //
                 if (itemCountedasUnit) {
                     if (isValidInput(insertedUnits)) {
                         val itemName = searchviewXml.query.toString()
                         val calories = insertedUnits.toInt() * thisItemsCalPerUnit
+                        val carbs =  insertedUnits.toInt() * thisItemsCarbsPerUnit
+                        val protein = insertedUnits.toInt() * thisItemsProteinPerUnit
+                        val fats =  insertedUnits.toInt() * thisItemsFatsPerUnit
                         val imageId = selectedImageID
                         // Sending entry to view model
                         addEntryAndGoBackHome(
-                            itemName,
-                            calories,
-                            imageId,
-                            insertedUnits,
-                            itemCategory)
+                            itemName = itemName,
+                            calories = calories,
+                            carbs = carbs,
+                            protein = protein,
+                            fats = fats,
+                            imageId = imageId,
+                            gramsOrUnit = insertedGrams,
+                            itemCategory = itemCategory
+                        )
                     } else {
                         requireContext().displayToast("יש להכניס כמות תקינה")
                     }
@@ -215,14 +230,20 @@ class AddEntryFragment : Fragment() {
                         val itemName = searchviewXml.query.toString()
                         val calories =
                             calculateFinalCalories(insertedGrams.toInt(), thisItemsCalPer100)
+                        val carbs = calculateFinalCarbs(insertedGrams.toInt(), thisItemsCarbsPer100)
+                        val protein = calculateFinalProtein(insertedGrams.toInt(), thisItemsProteinPer100)
+                        val fats = calculateFinalFats(insertedGrams.toInt(), thisItemsFatsPer100)
                         val image = selectedImageID
                         // Sending entry to view model
                         addEntryAndGoBackHome(
-                            itemName,
-                            calories,
-                            image,
-                            insertedGrams,
-                            itemCategory
+                            itemName = itemName,
+                            calories = calories,
+                            carbs = carbs,
+                            protein = protein,
+                            fats = fats,
+                            imageId = image,
+                            gramsOrUnit = insertedGrams,
+                            itemCategory = itemCategory
                         )
                         }
                     else {
@@ -235,9 +256,14 @@ class AddEntryFragment : Fragment() {
         return root
     }
 
+
+
     private fun addEntryAndGoBackHome(
         itemName: String,
         calories: Int,
+        carbs: Int,
+        protein: Int,
+        fats: Int,
         imageId: Int,
         gramsOrUnit: String,
         itemCategory: FoodCategory
@@ -257,6 +283,9 @@ class AddEntryFragment : Fragment() {
         val newEntry = FoodEntry(
             foodName = itemName,
             calories = calories,
+            carbs = carbs,
+            protein = protein,
+            fats = fats,
             gramsOrUnit = gramsOrUnit, //This has no use, it is only for extra info
             imageName = imageResourceName,
             hour = hour,
@@ -282,11 +311,23 @@ class AddEntryFragment : Fragment() {
         return ((tempCal / 100) * inputGrams).toInt()
     }
 
+    private fun calculateFinalCarbs(insertedGrams: Int, thisItemsCarbsPer100: Int): Int {
+        val tempCarbs: Double = thisItemsCarbsPer100.toDouble()
+        return ((tempCarbs / 100) * insertedGrams).toInt()
+    }
 
+    private fun calculateFinalProtein(insertedGrams: Int, thisItemsProteinPer100: Int): Int {
+        val tempProtein: Double = thisItemsProteinPer100.toDouble()
+        return ((tempProtein / 100) * insertedGrams).toInt()
+    }
+
+    private fun calculateFinalFats(insertedGrams: Int, thisItemsFatsPer100: Int): Int {
+        val tempFats: Double = thisItemsFatsPer100.toDouble()
+        return ((tempFats / 100) * insertedGrams).toInt()
+    }
     private fun isValidInput(value: String): Boolean {
         // If the vale is not empty and bigger than 0 return true
         return value != "" && value.toInt() > 0
-
     }
 
     override fun onDestroyView() {

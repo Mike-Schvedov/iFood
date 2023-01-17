@@ -11,6 +11,9 @@ data class FoodEntry(
     var foodId: String = UUID.randomUUID().toString(),
     val foodName: String,
     val calories: Int,
+    val carbs: Int,
+    val protein: Int,
+    val fats: Int,
     val gramsOrUnit: String, //This has no use, it is only for extra info
     val imageName: String,
     val hour: Int,

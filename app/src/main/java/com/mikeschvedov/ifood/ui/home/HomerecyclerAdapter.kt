@@ -60,6 +60,8 @@ class HomeRecyclerAdapter @Inject constructor(
             itemView.findViewById(R.id.entry_name_xml)
         var calories: TextView =
             itemView.findViewById(R.id.entry_calories_xml)
+        var macros: TextView =
+            itemView.findViewById(R.id.entry_macros_xml)
         var image: ShapeableImageView =
             itemView.findViewById(R.id.entry_image_xml)
         var layout : ConstraintLayout =
@@ -84,6 +86,9 @@ class HomeRecyclerAdapter @Inject constructor(
 
         // --- Setting the calories --- //
         holder.calories.text = item.calories.toString()
+
+        // --- Setting the macros --- //
+        holder.macros.text = "${item.carbs}/${item.protein}/${item.fats}"
 
         //  -- Converting imageName to ID -- //
         // (because the id's are not stable and always change -  we save the image by NAME inside the DB)
