@@ -7,7 +7,7 @@ class FoodArchive {
 
         var foodDataList = arrayListOf<FoodSaved>(
             //א
-            FoodSaved(name = "אבוקדו", calPer100gr = 160, imageID = R.drawable.avocado, asUnit = false, caloriesPerUnit = 0, category = FoodCategory.VEGETABLE),
+            FoodSaved(name = "אבוקדו", calPer100gr = 160, imageID = R.drawable.avocado, asUnit = false, caloriesPerUnit = 0, category = FoodCategory.VEGETABLE, carbPer100gr = 8 , proteinPer100gr = 2, fatPer100gr = 15),
             FoodSaved(name = "אגס", calPer100gr =59, imageID = R.drawable.pear, asUnit = false, caloriesPerUnit = 0 ,category =  FoodCategory.DEFAULT),
             FoodSaved(name = "אגס נאשי / אסיאתי", calPer100gr =50, imageID = R.drawable.pearnashi, asUnit = false, caloriesPerUnit = 0 ,category =  FoodCategory.DEFAULT),
             FoodSaved(name = "אורז", calPer100gr =130, imageID = R.drawable.rice, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.DEFAULT),
@@ -18,7 +18,8 @@ class FoodArchive {
             FoodSaved(name = "אקסל", calPer100gr =0, imageID = R.drawable.xl, asUnit = true, caloriesPerUnit = 120,category =  FoodCategory.DEFAULT),
             //ב
             FoodSaved(name = "ביג מאק (ללא רוטב)", calPer100gr = 0, imageID = R.drawable.bigmac, asUnit = true, caloriesPerUnit = 350,category =  FoodCategory.DEFAULT),
-            FoodSaved(name = "ביצה", calPer100gr = 155, imageID = R.drawable.egg, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.DEFAULT),
+            FoodSaved(name = "בייגלה סניידרס שברים", calPer100gr = 473, imageID = R.drawable.sniders, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.SNACK, carbPer100gr = 53 , proteinPer100gr = 7, fatPer100gr = 25),
+            FoodSaved(name = "ביצה", calPer100gr = 155, imageID = R.drawable.egg, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.MEAT, carbPer100gr = 1 , proteinPer100gr = 13, fatPer100gr = 11),
             FoodSaved(name = "בירה ווינשטפנר (חצי ליטר)", calPer100gr = 0, imageID = R.drawable.weinshtefen, asUnit = true, caloriesPerUnit = 215,category =  FoodCategory.DEFAULT),
             FoodSaved(name = "בננה", calPer100gr = 90, imageID = R.drawable.banana, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.DEFAULT),
             FoodSaved(name = "בצל", calPer100gr = 32, imageID = R.drawable.onion, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.DEFAULT),
@@ -49,22 +50,22 @@ class FoodArchive {
             FoodSaved(name = "חזרת", calPer100gr =70, imageID = R.drawable.hazeret, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
             FoodSaved(name = "חיטה מבושלת", calPer100gr =150, imageID = R.drawable.wheat, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
             FoodSaved(name = "חלב", calPer100gr =60, imageID = R.drawable.milk, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DAIRY, carbPer100gr = 5 , proteinPer100gr = 3, fatPer100gr = 3),
-            FoodSaved(name = "חלב כחוש ומרוכז", calPer100gr =320, imageID = R.drawable.kahush, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
+            FoodSaved(name = "חלב כחוש ומרוכז", calPer100gr =320, imageID = R.drawable.kahush, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.SWEET, carbPer100gr = 58 , proteinPer100gr = 7, fatPer100gr = 8),
             FoodSaved(name = "חמאה", calPer100gr =734, imageID = R.drawable.butter, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
             //ט
-            FoodSaved(name = "טונה אדומה", calPer100gr =130, imageID = R.drawable.redtuna, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
-            FoodSaved(name = "טונה במים", calPer100gr =100, imageID = R.drawable.tuna, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
-            FoodSaved(name = "טונה בשמן", calPer100gr =150, imageID = R.drawable.tuna, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
+            FoodSaved(name = "טונה אדומה", calPer100gr =130, imageID = R.drawable.redtuna, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.MEAT),
+            FoodSaved(name = "טונה במים", calPer100gr =100, imageID = R.drawable.tuna, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.MEAT),
+            FoodSaved(name = "טונה בשמן", calPer100gr =150, imageID = R.drawable.tuna, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.MEAT, carbPer100gr = 0 , proteinPer100gr = 24, fatPer100gr = 12),
             //י
-            FoodSaved(name = "יין אדום", calPer100gr =85, imageID = R.drawable.wine, asUnit = false,caloriesPerUnit =  0,category = FoodCategory.DEFAULT),
+            FoodSaved(name = "יין אדום", calPer100gr =85, imageID = R.drawable.wine, asUnit = false,caloriesPerUnit =  0,category = FoodCategory.ALCOHOL),
             //כ
-            FoodSaved(name = "כוסמת", calPer100gr =92, imageID = R.drawable.kosemet, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
+            FoodSaved(name = "כוסמת", calPer100gr =92, imageID = R.drawable.kosemet, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.LEGUME),
 
             //ל
-            FoodSaved(name = "לאבנה 11%", calPer100gr =144, imageID = R.drawable.labane, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
-            FoodSaved(name = "לחם שיפון מלא", calPer100gr =220, imageID = R.drawable.bead, asUnit = false,caloriesPerUnit =  0,category = FoodCategory.DEFAULT),
-            FoodSaved(name = "לחם פרנה", calPer100gr =280, imageID = R.drawable.frena, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
-            FoodSaved(name = "לחמניות המבורגר", calPer100gr =350, imageID = R.drawable.buns, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
+            FoodSaved(name = "לאבנה 11%", calPer100gr =144, imageID = R.drawable.labane, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DAIRY, carbPer100gr = 2 , proteinPer100gr = 12, fatPer100gr = 11),
+            FoodSaved(name = "לחם שיפון מלא", calPer100gr =220, imageID = R.drawable.bead, asUnit = false,caloriesPerUnit =  0,category = FoodCategory.GRAIN),
+            FoodSaved(name = "לחם פרנה", calPer100gr =280, imageID = R.drawable.frena, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.GRAIN),
+            FoodSaved(name = "לחמניות המבורגר", calPer100gr =350, imageID = R.drawable.buns, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.GRAIN),
             //מ
             FoodSaved(name = "מיונז לייט", calPer100gr =290, imageID = R.drawable.mayolite, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
 
@@ -79,13 +80,13 @@ class FoodArchive {
             FoodSaved(name = "מעדן הגולן", calPer100gr =0, imageID = R.drawable.golan,asUnit =  true, caloriesPerUnit = 168,category = FoodCategory.DEFAULT),
             FoodSaved(name = "מק-רויאל (ללא רוטב)", calPer100gr =0, imageID = R.drawable.mcroyal, asUnit = true, caloriesPerUnit = 450,category = FoodCategory.DEFAULT),
             //נ
-            FoodSaved(name = "נאצוס", calPer100gr =480, imageID = R.drawable.nacho, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
-            FoodSaved(name = "נישנושים", calPer100gr =491, imageID = R.drawable.nishnushim,asUnit =  false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
-            FoodSaved(name = "נישנושים זעתר", calPer100gr =522, imageID = R.drawable.nishnushimzaatar, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
+            FoodSaved(name = "נאצוס", calPer100gr =480, imageID = R.drawable.nacho, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.SNACK),
+            FoodSaved(name = "נישנושים", calPer100gr =491, imageID = R.drawable.nishnushim,asUnit =  false, caloriesPerUnit = 0,category = FoodCategory.SNACK),
+            FoodSaved(name = "נישנושים זעתר", calPer100gr =522, imageID = R.drawable.nishnushimzaatar, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.SNACK),
 
             FoodSaved(name = "נקטרינה", calPer100gr =44, imageID = R.drawable.nectarine, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
             FoodSaved(name = "נקניקיות", calPer100gr =200, imageID = R.drawable.sausage, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
-            FoodSaved(name = "נקניקיות פיקולינו רוסיות", calPer100gr =500, imageID = R.drawable.pikolini, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
+            FoodSaved(name = "נקניקיות פיקולינו רוסיות", calPer100gr =500, imageID = R.drawable.pikolini, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.MEAT, carbPer100gr = 6 , proteinPer100gr = 23, fatPer100gr = 41),
             FoodSaved(name = "נקניקיות גבינה מעושנת", calPer100gr =350, imageID = R.drawable.smokedcheesenaknik, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
             //ס
             FoodSaved(name = "סוכר", calPer100gr =400, imageID = R.drawable.sugar, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
@@ -113,9 +114,9 @@ class FoodArchive {
             FoodSaved(name = "קטשופ", calPer100gr =110, imageID = R.drawable.ketshup, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
             FoodSaved(name = "קולורבי", calPer100gr =27, imageID = R.drawable.kolorabi, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
             FoodSaved(name = "קוסקוס", calPer100gr =120, imageID = R.drawable.kuskus, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
-            FoodSaved(name = "קליליות", calPer100gr =372, imageID = R.drawable.kliliot, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
+            FoodSaved(name = "קליליות", calPer100gr =372, imageID = R.drawable.kliliot, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.GRAIN, carbPer100gr = 86 , proteinPer100gr = 6, fatPer100gr = 1),
             FoodSaved(name = "קלמנטינה/מנדרינה", calPer100gr =53, imageID = R.drawable.mandarin, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
-            FoodSaved(name = "קפה עם חלב", calPer100gr =60, imageID = R.drawable.coffee, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
+            FoodSaved(name = "קפה עם חלב", calPer100gr =60, imageID = R.drawable.coffee, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DAIRY, carbPer100gr = 5 , proteinPer100gr = 3, fatPer100gr = 3),
             //ר
             FoodSaved(name = "רוטב אלף האיים לייט", calPer100gr =186, imageID = R.drawable.thousandlite, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
             FoodSaved(name = "רוטב בולונז", calPer100gr =200, imageID = R.drawable.bolonez, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
@@ -132,7 +133,7 @@ class FoodArchive {
             FoodSaved(name = "שניצל מטוגן", calPer100gr =300, imageID = R.drawable.schnitzel, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
 
             //ת
-            FoodSaved(name = "תירס", calPer100gr =90, imageID = R.drawable.corn,asUnit =  false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
+            FoodSaved(name = "תירס", calPer100gr =90, imageID = R.drawable.corn,asUnit =  false, caloriesPerUnit = 0,category = FoodCategory.VEGETABLE, carbPer100gr = 19 , proteinPer100gr = 3, fatPer100gr = 1),
             FoodSaved(name = "תפוח אדמה/פירה", calPer100gr =93, imageID = R.drawable.potato, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.DEFAULT),
             )
 

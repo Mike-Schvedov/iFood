@@ -100,7 +100,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    fun setDailyTitle(currentDay: Int, currentMonth: Int, currentYear: Int) {
+    private fun setDailyTitle(currentDay: Int, currentMonth: Int, currentYear: Int) {
         binding.mainDailyDate.text = "$currentDay/${currentMonth + 1}/${currentYear.toString().drop(2)}"
     }
 
@@ -122,6 +122,15 @@ class HomeFragment : Fragment() {
         }
         homeViewModel.totalDailyCalories.observe(viewLifecycleOwner){ totalCalories->
             binding.caloriesEatenTodayXml.text = totalCalories.toString()
+        }
+        homeViewModel.totalDailyCarbs.observe(viewLifecycleOwner){ totalCarbs->
+            binding.carbsDataText.text = totalCarbs
+        }
+        homeViewModel.totalDailyProtein.observe(viewLifecycleOwner){ totalProtein->
+            binding.proteinDataText.text = totalProtein
+        }
+        homeViewModel.totalDailyFats.observe(viewLifecycleOwner){ totalFats->
+            binding.fatsDataText.text = totalFats
         }
         homeViewModel.itemToDelete.observe(viewLifecycleOwner){ itemToDelete->
             showAlertDialog(itemToDelete)

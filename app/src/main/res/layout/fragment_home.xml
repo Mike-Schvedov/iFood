@@ -90,25 +90,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25"/>
+        app:layout_constraintGuide_percent="0.3" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/guideline_H20"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/guideline_H30"
         android:orientation="horizontal">
-
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
         <TextView
+            android:id="@+id/carbs_data_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:padding="4dp"
+            android:text="פחמימה - 100 גרם (70%)"
+            android:textColor="@color/black"
+            android:fontFamily="@font/secular_one"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/protein_data_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="חלבון  - 100 גרם (70%)"
+            android:textColor="@color/black"
+            android:fontFamily="@font/secular_one"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/fats_data_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="שומן - 100 גרם (70%)"
+            android:textColor="@color/black"
+            android:fontFamily="@font/secular_one"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:text="קלוריות"
+            android:paddingTop="46dp"
+            android:paddingEnd="4dp"
             android:textColor="@color/darker_brown"
             android:textSize="10sp"
             android:textStyle="bold" />
@@ -117,18 +149,19 @@
             android:id="@+id/calories_eaten_today_xml"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:padding="4dp"
             android:text="0"
             android:fontFamily="@font/secular_one"
             android:textColor="@color/darker_brown"
             android:textSize="22sp"
+            android:paddingEnd="4dp"
+            android:paddingTop="30dp"
             android:textStyle="bold" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:padding="4dp"
             android:text="/"
+            android:paddingEnd="4dp"
+            android:paddingTop="30dp"
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -136,9 +169,10 @@
         <TextView
             android:id="@+id/calories_overall_goal"
             android:layout_width="wrap_content"
+            android:paddingEnd="4dp"
             android:layout_height="match_parent"
             android:fontFamily="@font/secular_one"
-            android:padding="4dp"
+            android:paddingTop="30dp"
             android:text="1500"
             android:textColor="@color/black"
             android:textSize="22sp"
@@ -147,6 +181,7 @@
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:layout_marginEnd="60dp"
             android:src="@drawable/food_logo"/>
     </LinearLayout>
 

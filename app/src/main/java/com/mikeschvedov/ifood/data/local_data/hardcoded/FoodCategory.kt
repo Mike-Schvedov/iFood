@@ -9,5 +9,6 @@ enum class FoodCategory(val description: String) {
     SWEET("Desserts"),
     SNACK("Chips, Doritos, Sniders, Nishnushim"),
     GRAIN("Bread, Pasta, Rice"),
-    LEGUME("Beans, Humus, ")
+    LEGUME("Beans, Humus, "),
+    ALCOHOL("Bears, Wine")
 }
