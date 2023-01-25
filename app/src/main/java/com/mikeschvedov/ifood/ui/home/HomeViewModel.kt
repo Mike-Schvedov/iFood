@@ -79,7 +79,7 @@ class HomeViewModel @Inject constructor(
                 // Calculate total daily calories and post to live data
                 val totalProtein = mediator.calculateTotalProtein(listOfEntries)
                 println("Calculating Protein Percent, this is the current total calories: $totalCalories")
-                val proteinPercent = calculateMacroPercent(totalCalories, totalProtein, 3)
+                val proteinPercent = calculateMacroPercent(totalCalories, totalProtein, 4)
                 val rawProteinString = "חלבון - ${totalProtein} גרם (${proteinPercent}%)"
                 _totalDailyProtein.postValue(rawProteinString)
 

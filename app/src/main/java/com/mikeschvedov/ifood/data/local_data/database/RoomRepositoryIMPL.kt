@@ -9,7 +9,6 @@ class RoomRepositoryIMPL @Inject constructor(
     private val foodEntryDao: FoodEntryDao
 ) :Repository {
 
-
     override suspend fun addNewEntry(foodEntry: FoodEntry) {
         foodEntryDao.addNewEntry(foodEntry)
     }

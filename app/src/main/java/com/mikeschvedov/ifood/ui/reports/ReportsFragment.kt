@@ -1,4 +1,4 @@
-package com.mikeschvedov.ifood.ui.add_entry
+package com.mikeschvedov.ifood.ui.reports
 
 import android.os.Bundle
 import android.text.Editable
@@ -22,13 +22,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.roundToInt
 
 @AndroidEntryPoint
-class AddEntryFragment : Fragment() {
+class ReportsFragment : Fragment() {
 
     private var _binding: FragmentAddEntryBinding? = null
 
     private val binding get() = _binding!!
 
-    private lateinit var addEntryViewModel: AddEntryViewModel
+    private lateinit var reportsViewModel: ReportsViewModel
 
     private var thisItemsCalPer100: Int = 0
     private var  thisItemsCarbsPer100: Int = 0
@@ -49,8 +49,8 @@ class AddEntryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         /* ViewModel */
-        addEntryViewModel =
-            ViewModelProvider(this).get(AddEntryViewModel::class.java)
+        reportsViewModel =
+            ViewModelProvider(this).get(ReportsViewModel::class.java)
 
         /* Binding */
         _binding = FragmentAddEntryBinding.inflate(inflater, container, false)
@@ -252,8 +252,11 @@ class AddEntryFragment : Fragment() {
                 }
             }
         }
+
         return root
     }
+
+
 
     private fun addEntryAndGoBackHome(
         itemName: String,
@@ -291,7 +294,7 @@ class AddEntryFragment : Fragment() {
             year = year,
             itemCategory = itemCategory
         )
-        addEntryViewModel.addNewEntryToDB(newEntry)
+        reportsViewModel.addNewEntryToDB(newEntry)
         // Clear the query and the edit texts
         binding.searchviewXml.setQuery("", false)
         binding.unitsEdittextXml.text.clear()
