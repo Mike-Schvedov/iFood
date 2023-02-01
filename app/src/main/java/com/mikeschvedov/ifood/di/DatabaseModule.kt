@@ -23,5 +23,4 @@ object DatabaseModule {
     @Provides
     fun provideFoodDao(appDB: AppDatabase) =
         appDB.foodEntryDao()
-
 }

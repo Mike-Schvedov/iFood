@@ -32,11 +32,13 @@ class AddEntryFragment : Fragment() {
 
     private var thisItemsCalPer100: Int = 0
     private var  thisItemsCarbsPer100: Int = 0
+    private var  thisItemsNetoCarbsPer100 = 0
     private var thisItemsProteinPer100: Int = 0
     private var thisItemsFatsPer100: Int = 0
 
     private var thisItemsCalPerUnit: Int = 0
     private var thisItemsCarbsPerUnit: Int = 0
+    private var thisItemsNetoCarbsPerUnit = 0
     private var thisItemsProteinPerUnit: Int = 0
     private var thisItemsFatsPerUnit: Int = 0
 
@@ -111,6 +113,7 @@ class AddEntryFragment : Fragment() {
                 thisItemsCalPer100 = listAdapter.getItem(position)?.calPer100gr ?: 0
                 // Macros
                 thisItemsCarbsPer100 = listAdapter.getItem(position)?.carbPer100gr ?: 0
+                thisItemsNetoCarbsPer100 = listAdapter.getItem(position)?.netCarbPer100gr?: 0
                 thisItemsProteinPer100 = listAdapter.getItem(position)?.proteinPer100gr ?: 0
                 thisItemsFatsPer100 = listAdapter.getItem(position)?.fatPer100gr ?: 0
                 // We store our selected item's image
@@ -127,6 +130,7 @@ class AddEntryFragment : Fragment() {
                     thisItemsCalPerUnit = listAdapter.getItem(position)?.caloriesPerUnit ?: 0
                     // Settings Macros
                     thisItemsCarbsPerUnit = listAdapter.getItem(position)?.carbPerUnit ?: 0
+                    thisItemsNetoCarbsPerUnit = listAdapter.getItem(position)?.netCarbPerUnit?:0
                     thisItemsProteinPerUnit = listAdapter.getItem(position)?.proteinPerUnit ?: 0
                     thisItemsFatsPerUnit = listAdapter.getItem(position)?.fatPerUnit ?: 0
                     // Show the by unit input section
@@ -207,6 +211,7 @@ class AddEntryFragment : Fragment() {
                         val itemName = searchviewXml.query.toString()
                         val calories = insertedUnits.toInt() * thisItemsCalPerUnit
                         val carbs =  insertedUnits.toInt() * thisItemsCarbsPerUnit
+                        val netCarbs =  insertedUnits.toInt() * thisItemsNetoCarbsPerUnit
                         val protein = insertedUnits.toInt() * thisItemsProteinPerUnit
                         val fats =  insertedUnits.toInt() * thisItemsFatsPerUnit
                         val imageId = selectedImageID
@@ -215,6 +220,7 @@ class AddEntryFragment : Fragment() {
                             itemName = itemName,
                             calories = calories,
                             carbs = carbs,
+                            netoCarbs = netCarbs,
                             protein = protein,
                             fats = fats,
                             imageId = imageId,
@@ -231,6 +237,7 @@ class AddEntryFragment : Fragment() {
                         val calories =
                             calculateFinalCalories(insertedGrams.toInt(), thisItemsCalPer100)
                         val carbs = calculateFinalCarbs(insertedGrams.toInt(), thisItemsCarbsPer100)
+                        val netCarbs = calculateFinalNetoCarbs(insertedGrams.toInt(), thisItemsNetoCarbsPer100)
                         val protein = calculateFinalProtein(insertedGrams.toInt(), thisItemsProteinPer100)
                         val fats = calculateFinalFats(insertedGrams.toInt(), thisItemsFatsPer100)
                         val image = selectedImageID
@@ -239,6 +246,7 @@ class AddEntryFragment : Fragment() {
                             itemName = itemName,
                             calories = calories,
                             carbs = carbs,
+                            netoCarbs = netCarbs,
                             protein = protein,
                             fats = fats,
                             imageId = image,
@@ -259,6 +267,7 @@ class AddEntryFragment : Fragment() {
         itemName: String,
         calories: Int,
         carbs: Int,
+        netoCarbs: Int,
         protein: Int,
         fats: Int,
         imageId: Int,
@@ -281,6 +290,7 @@ class AddEntryFragment : Fragment() {
             foodName = itemName,
             calories = calories,
             carbs = carbs,
+            netCarbs = netoCarbs,
             protein = protein,
             fats = fats,
             gramsOrUnit = gramsOrUnit, //This has no use, it is only for extra info
@@ -309,6 +319,11 @@ class AddEntryFragment : Fragment() {
     }
 
     private fun calculateFinalCarbs(insertedGrams: Int, thisItemsCarbsPer100: Int): Int {
+        val tempCarbs: Double = thisItemsCarbsPer100.toDouble()
+        return ((tempCarbs / 100) * insertedGrams).toInt()
+    }
+
+    private fun calculateFinalNetoCarbs(insertedGrams: Int, thisItemsCarbsPer100: Int): Int {
         val tempCarbs: Double = thisItemsCarbsPer100.toDouble()
         return ((tempCarbs / 100) * insertedGrams).toInt()
     }

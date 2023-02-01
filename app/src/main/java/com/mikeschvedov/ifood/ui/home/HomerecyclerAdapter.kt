@@ -88,7 +88,7 @@ class HomeRecyclerAdapter @Inject constructor(
         holder.calories.text = item.calories.toString()
 
         // --- Setting the macros --- //
-        holder.macros.text = "${item.carbs}/${item.protein}/${item.fats}"
+        holder.macros.text = "${item.carbs}/${item.netCarbs}/${item.protein}/${item.fats}"
 
         //  -- Converting imageName to ID -- //
         // (because the id's are not stable and always change -  we save the image by NAME inside the DB)

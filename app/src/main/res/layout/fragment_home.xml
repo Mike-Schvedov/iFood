@@ -117,6 +117,15 @@
             android:textSize="12sp"
             android:textStyle="bold" />
         <TextView
+            android:id="@+id/carbs_neto_data_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="פחמימה נטו - 100 גרם"
+            android:textColor="@color/black"
+            android:fontFamily="@font/secular_one"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+        <TextView
             android:id="@+id/protein_data_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

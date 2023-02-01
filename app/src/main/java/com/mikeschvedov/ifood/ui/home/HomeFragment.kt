@@ -126,6 +126,9 @@ class HomeFragment : Fragment() {
         homeViewModel.totalDailyCarbs.observe(viewLifecycleOwner){ totalCarbs->
             binding.carbsDataText.text = totalCarbs
         }
+        homeViewModel.totalDailyNetoCarbs.observe(viewLifecycleOwner){ totalNetCarbs->
+            binding.carbsNetoDataText.text = totalNetCarbs
+        }
         homeViewModel.totalDailyProtein.observe(viewLifecycleOwner){ totalProtein->
             binding.proteinDataText.text = totalProtein
         }

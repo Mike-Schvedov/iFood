@@ -43,6 +43,14 @@ class Mediator @Inject constructor(
         return sum
     }
 
+    fun calculateTotalNetoCarbs(listOfEntries: List<FoodEntry>): Int {
+        var sum = 0
+        listOfEntries.forEach {
+            sum += it.netCarbs
+        }
+        return sum
+    }
+
     fun calculateTotalProtein(listOfEntries: List<FoodEntry>): Int {
         var sum = 0
         listOfEntries.forEach {

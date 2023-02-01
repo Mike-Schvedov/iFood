@@ -30,6 +30,10 @@ class HomeViewModel @Inject constructor(
     private val _totalDailyCarbs = MutableLiveData<String>()
     val totalDailyCarbs: LiveData<String> get() = _totalDailyCarbs
 
+    // The sum of all neto carbs from a specific day
+    private val _totalDailyNetoCarbs = MutableLiveData<String>()
+    val totalDailyNetoCarbs: LiveData<String> get() = _totalDailyNetoCarbs
+
     // The sum of all protein from a specific day
     private val _totalDailyProtein = MutableLiveData<String>()
     val totalDailyProtein: LiveData<String> get() = _totalDailyProtein
@@ -69,23 +73,25 @@ class HomeViewModel @Inject constructor(
                 val totalCalories = mediator.calculateTotalCalories(listOfEntries)
                 _totalDailyCalories.postValue(totalCalories)
 
-                // Calculate total daily calories and post to live data
+                // Calculate total daily carbs and post to live data
                 val totalCarbs = mediator.calculateTotalCarbs(listOfEntries)
-                println("Calculating Carb Percent, this is the current total calories: $totalCalories")
                 val carbsPercent = calculateMacroPercent(totalCalories, totalCarbs, 4)
                 val rawCarbsString = "פחמימות - ${totalCarbs} גרם (${carbsPercent}%)"
                 _totalDailyCarbs.postValue(rawCarbsString)
 
-                // Calculate total daily calories and post to live data
+                // Calculate total daily carbs and post to live data
+                val totalNetoCarbs = mediator.calculateTotalNetoCarbs(listOfEntries)
+                val rawNetCarbsString = "פחמימות נטו - ${totalNetoCarbs} גרם "
+                _totalDailyNetoCarbs.postValue(rawNetCarbsString)
+
+                // Calculate total daily protein and post to live data
                 val totalProtein = mediator.calculateTotalProtein(listOfEntries)
-                println("Calculating Protein Percent, this is the current total calories: $totalCalories")
                 val proteinPercent = calculateMacroPercent(totalCalories, totalProtein, 4)
                 val rawProteinString = "חלבון - ${totalProtein} גרם (${proteinPercent}%)"
                 _totalDailyProtein.postValue(rawProteinString)
 
-                // Calculate total daily calories and post to live data
+                // Calculate total daily fats and post to live data
                 val totalFats = mediator.calculateTotalFats(listOfEntries)
-                println("Calculating Fats Percent, this is the current total calories: $totalCalories")
                 val fatsPercent = calculateMacroPercent(totalCalories, totalFats, 9)
                 val rawFatsString = "שומן - ${totalFats} גרם (${fatsPercent}%)"
                 _totalDailyFats.postValue(rawFatsString)
