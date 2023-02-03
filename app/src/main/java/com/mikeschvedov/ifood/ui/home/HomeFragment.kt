@@ -239,7 +239,8 @@ class HomeFragment : Fragment() {
         //It will also override backups that were created in the same date, because they have the same folder names
 
         val baseDatabasePath =  "data/data/com.mikeschvedov.ifood/databases"
-        val destinationBackupPath =  Environment.getExternalStorageDirectory().absolutePath //can be found on phone -> internal storage -> root
+         // INTERNAL STORAGE -> DOWNLOAD - > iFoodBackups
+        val destinationBackupPath =  Environment.getExternalStoragePublicDirectory( "Download")
         val dateFormat = "${currentDay}_${currentMonth+1}_${currentYear}"
         copyFile("${baseDatabasePath}/FoodDB","${destinationBackupPath}/iFoodBackups/Backup_$dateFormat/FoodDB_Backup")
         copyFile("${baseDatabasePath}/FoodDB-shm","${destinationBackupPath}/iFoodBackups/Backup_$dateFormat/FoodDB-shm_Backup")
