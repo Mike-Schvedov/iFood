@@ -2,6 +2,7 @@ package com.mikeschvedov.ifood.ui.add_entry
 
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -93,6 +94,9 @@ class AddEntryFragment : Fragment() {
                     listAdapter.filter.filter(query)
                     // if the query is empty hide the unit/grams layout
                     if(query.isNullOrEmpty()){
+                        // we set the input to be true again
+                        searchviewXml.inputType = InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+
                         displayCalculationByUnit.visibility = View.GONE
                         displayCalculationByWeight.visibility = View.GONE
                         unitsEdittextXml.text.clear()
@@ -107,6 +111,8 @@ class AddEntryFragment : Fragment() {
             listviewXml.setOnItemClickListener { _, _, position, _ ->
                 // We set the text to the search view
                 searchviewXml.setQuery(listAdapter.getItem(position).toString(), false);
+                // disabling the input so we cannot temper with the name
+                searchviewXml.inputType = InputType.TYPE_NULL
                 // We hide the list after clicking on the item
                 listviewXml.visibility = View.GONE
                 // We store our selected item's core calories
