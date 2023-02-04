@@ -15,7 +15,7 @@ data class FoodEntry(
     val netCarbs: Int,
     val protein: Int,
     val fats: Int,
-    val gramsOrUnit: String, //This has no use, it is only for extra info
+    val gramsOrUnit: String,
     val imageName: String,
     val hour: Int,
     val day: Int,

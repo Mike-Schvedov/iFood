@@ -167,7 +167,6 @@ class HomeFragment : Fragment() {
         currentDay = calendar[Calendar.DAY_OF_MONTH]
 
         // Backup database
-        Toast.makeText(requireContext(), "BACKING UP DATABASE", Toast.LENGTH_SHORT).show()
         backupDatabase()
     }
 

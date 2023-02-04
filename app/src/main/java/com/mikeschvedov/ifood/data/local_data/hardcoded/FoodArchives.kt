@@ -11,8 +11,8 @@ class FoodArchive {
             FoodSaved(name = "אגס", calPer100gr =59, imageID = R.drawable.pear, asUnit = false, caloriesPerUnit = 0 ,category =  FoodCategory.FRUIT),
             FoodSaved(name = "אגס נאשי / אסיאתי", calPer100gr =50, imageID = R.drawable.pearnashi, asUnit = false, caloriesPerUnit = 0 ,category =  FoodCategory.FRUIT),
             FoodSaved(name = "אורז", calPer100gr =130, imageID = R.drawable.rice, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.GRAIN),
-            FoodSaved(name = "אפונה (גרגירים)", calPer100gr =84, imageID = R.drawable.peas, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.VEGETABLE, carbPer100gr = 14 , proteinPer100gr = 5, fatPer100gr = 0),
-            FoodSaved(name = "אפונה (תרמילים)", calPer100gr =42, imageID = R.drawable.peas_pods, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.VEGETABLE , carbPer100gr = 7 , proteinPer100gr = 2, fatPer100gr = 0),
+            FoodSaved(name = "אפונה (גרגירים)", calPer100gr =84, imageID = R.drawable.peas, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.VEGETABLE, carbPer100gr = 14 ,netCarbPer100gr = 9, proteinPer100gr = 5, fatPer100gr = 0),
+            FoodSaved(name = "אפונה (תרמילים)", calPer100gr =42, imageID = R.drawable.peas_pods, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.VEGETABLE , carbPer100gr = 7 , netCarbPer100gr = 4, proteinPer100gr = 2, fatPer100gr = 0),
             FoodSaved(name = "אפרסמון", calPer100gr =70, imageID = R.drawable.persimmon, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.FRUIT),
             FoodSaved(name = "אפרסק", calPer100gr =40, imageID = R.drawable.peach, asUnit = false, caloriesPerUnit = 0,category =  FoodCategory.FRUIT),
             FoodSaved(name = "אקסל", calPer100gr =0, imageID = R.drawable.xl, asUnit = true, caloriesPerUnit = 120,category =  FoodCategory.DRINK),
@@ -51,7 +51,7 @@ class FoodArchive {
             FoodSaved(name = "זיתים שחורים (ללא גלעין)", calPer100gr =171, imageID = R.drawable.blackolive, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.VEGETABLE),
             //ח
             FoodSaved(name = "חומוס", calPer100gr =200, imageID = R.drawable.humus, asUnit = false,caloriesPerUnit =  0,category = FoodCategory.LEGUME),
-            FoodSaved(name = "חזה עוף", calPer100gr =170, imageID = R.drawable.chicken_breast, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.MEAT),
+            FoodSaved(name = "חזה עוף", calPer100gr =170, imageID = R.drawable.chicken_breast, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.MEAT, carbPer100gr = 0 , netCarbPer100gr = 0, proteinPer100gr = 30, fatPer100gr = 4),
             FoodSaved(name = "חזה עוף בקוקוס", calPer100gr =170, imageID = R.drawable.chikencoconut, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.COOKED_MEAL),
             FoodSaved(name = "חזרת", calPer100gr =70, imageID = R.drawable.hazeret, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.CONDIMENT),
             FoodSaved(name = "חיטה מבושלת", calPer100gr =150, imageID = R.drawable.wheat, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.GRAIN),
@@ -156,7 +156,7 @@ class FoodArchive {
             FoodSaved(name = "תפוציפס - חומץ מלח", calPer100gr =535, imageID = R.drawable.saltvinegar, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.SNACK, carbPer100gr = 53 , proteinPer100gr = 5, fatPer100gr = 33),
             FoodSaved(name = "תבשיל גולש - לפי המתכון", calPer100gr =120, imageID = R.drawable.general, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.MEAT, carbPer100gr = 4 , netCarbPer100gr = 3, proteinPer100gr = 8, fatPer100gr = 4),
             FoodSaved(name = "תות שדה", calPer100gr =32, imageID = R.drawable.general, asUnit = false, caloriesPerUnit = 0,category = FoodCategory.FRUIT, carbPer100gr = 8 , netCarbPer100gr = 6, proteinPer100gr = 0, fatPer100gr = 4),
-            )
+        )
 
     }
 }

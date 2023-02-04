@@ -24,7 +24,6 @@
         android:orientation="horizontal">
 
         <TextView
-
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -35,7 +34,7 @@
             android:paddingBottom="4dp"
             android:text="קלוריות"
             android:textColor="#4C4A4A"
-            android:textSize="8sp"
+            android:textSize="6sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/entry_calories_xml"
             app:layout_constraintEnd_toStartOf="@+id/entry_calories_xml"
@@ -46,17 +45,17 @@
         <TextView
             android:id="@+id/entry_calories_xml"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:fontFamily="@font/secular_one"
             android:gravity="center_vertical"
             android:paddingHorizontal="4dp"
-            android:paddingVertical="12dp"
+            android:paddingVertical="4dp"
             android:text="1000"
-
             android:textColor="#4C4A4A"
-            android:textSize="18dp"
+            android:textSize="12dp"
             android:textStyle="bold"
 
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/entry_macros_xml"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView"
@@ -66,17 +65,17 @@
         <TextView
             android:id="@+id/entry_macros_xml"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:fontFamily="@font/secular_one"
+
             android:gravity="center_vertical"
             android:paddingHorizontal="6dp"
-            android:paddingVertical="12dp"
-            android:text="50/50/50/50"
-            android:textColor="#4C4A4A"
-            android:textSize="12dp"
+            android:paddingVertical="2dp"
+            android:text="100 פחמימה\n100 נטו פחמימה\n100 חלבון\n100 שומן"
+            android:textColor="#000000"
+            android:textSize="7dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/entry_name_xml"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/entry_calories_xml"
             app:layout_constraintTop_toTopOf="parent" />
@@ -84,37 +83,52 @@
         <TextView
             android:id="@+id/entry_name_xml"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/secular_one"
+            android:layout_height="0dp"
             android:gravity="center_vertical"
-            android:padding="12dp"
+            android:fontFamily="@font/secular_one"
+            android:padding="8dp"
             android:text="מוצר"
             android:textColor="@color/black"
             android:textDirection="rtl"
-            android:textSize="14dp"
+            android:textSize="10dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/entry_image_xml"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/entry_macros_xml"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.4" />
+            app:layout_constraintWidth_percent="0.42" />
 
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/entry_image_xml"
             android:layout_width="55dp"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:layout_gravity="center_vertical"
             android:adjustViewBounds="true"
-            android:paddingVertical="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/grams_units_xml"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/entry_name_xml"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/circleImageView" />
+
+        <TextView
+            android:id="@+id/grams_units_xml"
+            android:layout_width="35dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/secular_one"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="1000"
+            android:layout_marginEnd="2dp"
+            android:layout_marginStart="2dp"
+            android:textColor="#4C4A4A"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/entry_image_xml"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

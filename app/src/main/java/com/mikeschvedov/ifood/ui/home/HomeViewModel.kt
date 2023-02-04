@@ -76,12 +76,12 @@ class HomeViewModel @Inject constructor(
                 // Calculate total daily carbs and post to live data
                 val totalCarbs = mediator.calculateTotalCarbs(listOfEntries)
                 val carbsPercent = calculateMacroPercent(totalCalories, totalCarbs, 4)
-                val rawCarbsString = "פחמימות - ${totalCarbs} גרם (${carbsPercent}%)"
+                val rawCarbsString = "פחמימה - ${totalCarbs} גרם (${carbsPercent}%)"
                 _totalDailyCarbs.postValue(rawCarbsString)
 
                 // Calculate total daily carbs and post to live data
                 val totalNetoCarbs = mediator.calculateTotalNetoCarbs(listOfEntries)
-                val rawNetCarbsString = "פחמימות נטו - ${totalNetoCarbs} גרם "
+                val rawNetCarbsString = "פחמימה נטו - ${totalNetoCarbs} גרם "
                 _totalDailyNetoCarbs.postValue(rawNetCarbsString)
 
                 // Calculate total daily protein and post to live data

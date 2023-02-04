@@ -62,6 +62,8 @@ class HomeRecyclerAdapter @Inject constructor(
             itemView.findViewById(R.id.entry_calories_xml)
         var macros: TextView =
             itemView.findViewById(R.id.entry_macros_xml)
+        var gramsUnits: TextView =
+            itemView.findViewById(R.id.grams_units_xml)
         var image: ShapeableImageView =
             itemView.findViewById(R.id.entry_image_xml)
         var layout : ConstraintLayout =
@@ -88,7 +90,11 @@ class HomeRecyclerAdapter @Inject constructor(
         holder.calories.text = item.calories.toString()
 
         // --- Setting the macros --- //
-        holder.macros.text = "${item.carbs}/${item.netCarbs}/${item.protein}/${item.fats}"
+   //     holder.macros.text = "${item.carbs}/${item.netCarbs}/${item.protein}/${item.fats}"
+        holder.macros.text = "${item.carbs} פחמימה\n${item.netCarbs} נטו פחמימה\n${item.protein} חלבון\n${item.fats} שומן"
+
+        // --- Setting the weight or units --- //
+        holder.gramsUnits.text = item.gramsOrUnit
 
         //  -- Converting imageName to ID -- //
         // (because the id's are not stable and always change -  we save the image by NAME inside the DB)
