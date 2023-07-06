@@ -16,5 +16,6 @@ enum class FoodCategory(val description: String) {
     JUNKFOOD("Mcdonals, Shawarma"),
     OTHER("Running Gel, undefined"),
     CONDIMENT("Mayo, Ketchup"),
-    COOKED_MEAL("memulaim")
+    COOKED_MEAL("memulaim"),
+    NUTS("all types")
 }

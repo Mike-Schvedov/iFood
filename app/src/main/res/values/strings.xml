@@ -21,5 +21,5 @@
     <string name="search">חפש</string>
     <string name="nothing_to_show">אין מה להציג, נא לחפש תאריך אחר.</string>
     <string name="add_new_entry">Add New Entry</string>
-    <string name="version_number">2.2.2</string>
+    <string name="version_number">2.2.3</string>
 </resources>

@@ -184,7 +184,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/secular_one"
 
-            android:text="1500"
+            android:text="1400"
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="bold" />
